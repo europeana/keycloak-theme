@@ -1,0 +1,307 @@
+.content-card {
+  background: $white;
+  border-radius: $border-radius-small;
+  box-shadow: $boxshadow-small;
+  color: $black;
+  font-size: $font-size-small;
+  height: auto;
+  line-height: 1.1875rem;
+  transition: box-shadow 0.25s;
+
+  &.card {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: $bp-medium) {
+    min-height: 20rem;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .card-img {
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    overflow: hidden;
+    flex: 1 1 auto;
+    max-height: 13rem;
+    min-height: 13rem;
+    width: 100%;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .card-body {
+    flex: 0;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    max-height: 1.1875rem;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .card-subtitle {
+    color: $mediumgrey;
+    font-size: $font-size-extrasmall;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .card-title:last-child,
+  .card-subtitle:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-text {
+    color: $mediumgrey;
+
+    p {
+      max-height: 4.75rem;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+
+    &:last-of-type p {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-link {
+    min-height: 100%;
+    color: $black;
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &.entity-card {
+    .card-img {
+      position: relative;
+      &::after {
+        border-bottom: 88px solid $white;
+        border-left: 44px solid transparent;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 0;
+        position: absolute;
+        right: 0;
+        width: 0;
+      }
+    }
+
+    @media (min-width: $bp-medium) {
+      min-height: auto;
+    }
+  }
+
+  &.mini-card {
+    min-height: auto;
+    padding: 1rem;
+
+    a {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .card-img {
+        border-radius: 4px;
+        display: block;
+        flex: 0 0 auto;
+        height: 80px;
+        min-height: initial;
+        order: 2;
+        overflow: hidden;
+        position: relative;
+        width: 80px;
+
+        img {
+          height: 80px;
+          margin: 0;
+          position: absolute;
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          padding-bottom: 100%;
+          width: 100%;
+        }
+      }
+
+      .card-title {
+        overflow-wrap: break-word;
+        word-break: break-word;
+        max-height: 3.5625rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+      }
+
+      .card-body {
+        flex-grow: 1;
+        margin-right: 1rem;
+        order: 1;
+        padding: 0;
+        width: 55%;
+      }
+
+      .card-text {
+        color: $blue;
+      }
+    }
+  }
+
+  &.list-card {
+    @media (min-width: $bp-medium) {
+      min-height: 0;
+
+      a {
+        flex-direction: row;
+        justify-content: space-between;
+
+        .card-img {
+          display: inline-block;
+          height: 13rem;
+          max-height: none;
+          min-height: 0;
+          order: 2;
+          width: 200px;
+
+          img {
+            border-radius: 0 calc(0.25rem - 1px) calc(0.25rem - 1px) 0;
+            height: 100%;
+          }
+        }
+
+        .card-body {
+          flex: none;
+          padding-right: 2rem;
+          width: calc(100% - 200px);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: $boxshadow-large;
+  }
+}
+
+.card-group-list .card,
+.card-deck-3-cols .card,
+.card-deck-4-cols .card {
+  flex: 0 0 100%;
+}
+
+@media (min-width: $bp-medium) {
+  .card-deck-3-cols .card {
+    flex: 0 0 calc(100% / 3 - #{$grid-gutter*2});
+  }
+
+  .card-deck-4-cols .card {
+    flex: 0 0 calc(100% / 2 - #{$grid-gutter*2});
+  }
+}
+
+@media (min-width: $bp-large) {
+  .card-deck-4-cols .card {
+    flex: 0 0 calc(100% / 4 - #{$grid-gutter*2});
+  }
+}
+
+.is-external-link.card-link .card-title:after {
+  content: '\e900';
+  @extend .icon-font;
+}
+
+.masonry {
+  display: block;
+  columns: 1;
+  column-gap: 0;
+  width: 100%;
+
+  @media (min-width: $bp-small) {
+    columns: 2;
+    column-gap: 1.875rem;
+  }
+
+  @media (min-width: $bp-large) {
+    columns: 4;
+
+    &.card-deck-3-cols {
+      columns: 3;
+    }
+  }
+
+  .content-card {
+    box-shadow: none;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    transform: translateZ(0);
+
+    // targets safari 10+ to avoid missing card bug
+    @media not all and (min-resolution: 0.001dpcm) {
+      transform: none;
+    }
+
+    a {
+      &:before {
+        box-shadow: $boxshadow-small;
+        content: '';
+        height: 100%;
+        position: absolute;
+        transition: box-shadow 0.25s;
+        width: 100%;
+      }
+
+      &:hover {
+        &:before {
+          box-shadow: $boxshadow-large;
+        }
+      }
+      .card-img {
+        min-height: 12rem;
+        max-height: none;
+      }
+
+      .card-title {
+        display: block;
+        -webkit-line-clamp: initial;
+        -webkit-box-orient: initial;
+        max-height: none;
+      }
+
+      .card-text:last-of-type p {
+        max-height: none;
+        display: block;
+        -webkit-line-clamp: initial;
+        -webkit-box-orient: initial;
+      }
+    }
+  }
+}
+
+.browse-section {
+  .content-card:not(.mini-card) a .card-body {
+    min-height: 10rem;
+  }
+}

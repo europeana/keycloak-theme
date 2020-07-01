@@ -1,0 +1,23 @@
+.is-size-1 {
+  font-size: 2.375rem; 
+}
+
+.is-size-1-5 {
+  font-size: 1.5rem; // 1.5rem
+}
+
+.is-size-2 {
+  font-size: $font-size-medium; // 1.25rem
+}
+
+.is-size-3 {
+  font-size: $font-size-base; // 1rem
+}
+
+.is-size-4 {
+  font-size: $font-size-extrasmall; // 0.75rem
+}
+
+.is-size-5 {
+  font-size: $font-size-smallest // 0.625rem
+}

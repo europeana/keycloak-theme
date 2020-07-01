@@ -1,0 +1,26 @@
+.badge {
+  text-decoration: none;
+}
+
+.badge-secondary {
+  background: $blue;
+  font-size: $font-size-smallest;
+  font-weight: normal;
+  padding: 0.5rem;
+}
+
+.badge-pill {
+  background-color: $blue;
+  font-size: $font-size-small;
+  font-weight: 400;
+  transition: $standard-transition;
+  cursor: pointer;
+  &:hover {
+    background-color: $darkblue;
+  }
+
+  .pill-close {
+    color: $white;
+    text-decoration: none;
+  }
+}

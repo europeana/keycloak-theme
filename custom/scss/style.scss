@@ -1,0 +1,17 @@
+//import boostrap
+@import 'bootstrap/scss/bootstrap';
+
+//import essential from portal
+@import 'variables';
+@import 'buttons-links';
+@import 'colours';
+@import 'default';
+@import 'icons';
+
+//import custom for keycloak
+@import 'fonts';
+@import 'alert';
+@import 'navlinks';
+@import 'form';
+@import 'texts';
+@import 'grid';

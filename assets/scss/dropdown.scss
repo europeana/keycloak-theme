@@ -1,0 +1,214 @@
+.dropdown {
+
+  .btn-light {
+    background: $white;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+    color: $mediumgrey;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+  }
+
+  .btn-selected {
+    background: $white;
+    border-color: $blue;
+    color: $mediumgrey;
+    padding: 0.75rem 1rem;
+  }
+
+  .dropdown-buttons {
+    border-top: 1px solid $lightgrey;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 0.5rem 0;
+    width: 100%;
+
+    .btn {
+      font-size: 0.875rem;
+      margin-left: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .btn-link {
+      padding: 0;
+    }
+  }
+
+  .dropdown-item {
+    text-decoration: none;
+  }
+
+  &.show {
+    .btn-light {
+      background: $white;
+      border-color: $blue;
+    }
+  }
+
+  &.more-facets {
+    legend {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0;
+    }
+
+    > button {
+      font-size: 1rem;
+    }
+
+    &.is-active {
+      > button {
+        border-color: $blue;
+        color: $blue;
+      }
+    }
+
+    .selected-amount {
+      padding-left: 0.25rem;
+
+      &:before {
+        content: '\2219';
+        font-weight: bold;
+      }
+    }
+
+    .dropdown-menu {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      margin: 1rem 0 0;
+      width: 100%;
+      
+      .more-facets-wrapper {
+        height: calc(70vh - 4rem);
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+          width: 0.25rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: $grey;
+        }
+
+        .form-group {
+          border-bottom: 1px solid $lightgrey;
+          margin: 1.5rem 1.5rem 2rem;
+          padding-bottom: 2rem;
+
+          &:last-of-type {
+            border-bottom: 0;
+          }
+        }
+
+        .dropdown-buttons {
+          position: fixed;
+        }
+      }
+
+      &.show {
+        transform: translate3d(0, 3rem, 0) !important;
+      }
+
+      .b-dropdown-form {
+        padding: 0;
+
+        .option-group {
+          align-items: flex-start;
+          display: flex;
+          flex-flow: row wrap;
+          width: 100%;
+        }
+
+        .form-check {
+          padding-left: 0;
+          padding-right: 1rem;
+          margin-right: 0;
+
+          @media (min-width: $bp-large) {
+            flex: 0 0 calc(100% / 3);
+          }
+        }
+
+        .reset {
+          background: $white;
+          border-radius: 50%;
+          color: $blue;
+          display: none;
+          flex-shrink: 0;
+          font-size: 0.55rem;
+          height: 1rem;
+          line-height: 0.9rem;
+          margin-left: 0.5rem;
+          margin-right: -0.25rem;
+          padding-top: 0.17rem;
+          text-align: center;
+          width: 1rem;
+        }
+
+        .form-check:not(.unstyled) {
+          label {
+            align-items: center;
+            border: 1px solid $lightgrey;
+            border-radius: 1rem;
+            cursor: pointer;
+            display: flex;
+            font-size: $font-size-small;
+            padding: 0.25rem 0.75rem;
+          }
+
+          input[type='checkbox'],
+          input[type='radio'] {
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            z-index: -10;
+          }
+
+          input[type='checkbox']:checked + label,
+          input[type='radio']:checked + label {
+            background: $blue;
+            border-color: $blue;
+            color: $white;
+
+            .reset {
+              display: inline-block;
+            }
+          }
+        }
+
+        .btn-toggle {
+          font-size: $font-size-small;
+          position: relative;
+          padding-right: 1.2rem;
+          padding-left: 0;
+
+          &:after {
+            @extend .icon-font;
+            content: '\e903';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -8px;
+            display: block;
+            width: 14px;
+          }
+
+          &.is-active {
+            &:after {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+
+      .colour-palette {
+        border: 1px solid $lightgrey;
+        border-radius: 50%;
+        height: 1.25rem;
+        margin-left: -0.4rem;
+        margin-right: 0.5rem;
+        width: 1.25rem;
+      }
+    }
+  }
+}

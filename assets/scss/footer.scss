@@ -1,0 +1,115 @@
+footer {
+  background: $midnight;
+  color: $white;
+  position: relative;
+
+  &::after {
+    border-top: 145px solid $bodygrey;
+    border-left: 60px solid transparent;
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+  }
+
+  figcaption {
+    font-size: $font-size-small;
+    color: $paper;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: $font-size-medium;
+  }
+
+  hr {
+    border-top-color: $white;
+  }
+
+  .sub-footer {
+    p {
+      font-size: $font-size-smallest;
+    }
+  }
+
+  .footer-link-list {
+    list-style-type: none;
+
+    li {
+      .footer-link {
+        color: white;
+        font-size: $font-size-small;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.is-external-link::after {
+          content: '\e900';
+          color: $white;
+          @extend .icon-font;
+        }
+      }
+    }
+
+    &.social-links {
+      display: flex;
+
+      li {
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+
+        .footer-link {
+          align-items: center;
+          background: $white;
+          border-radius: 50%;
+          display: flex;
+          height: 2.5rem;
+          justify-content: center;
+          transition: background 0.25s;
+          width: 2.5rem;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+          }
+
+          &.is-external-link {
+            &::after {
+              content: '';
+            }
+          }
+
+          i {
+            color: $midnight;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown {
+    .dropdown-toggle {
+      color: $blue;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      &:before {
+        content: '\e905';
+        margin-right: 0.5rem;
+        @extend .icon-font;
+      }
+    }
+
+    .dropdown-menu {
+      max-height: 50vh;
+      overflow: auto;
+    }
+  }  
+}

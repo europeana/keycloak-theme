@@ -1,0 +1,10 @@
+.form-control {
+  background-color: $offwhite;
+  border: 0;
+  font-weight: normal;
+  height: 2.5rem;
+
+  &::placeholder {
+    color: $grey;
+  }
+}

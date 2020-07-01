@@ -1,0 +1,47 @@
+.kccontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  .kcinner {
+    display: block;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    &::before {
+      min-height: 50px;
+    }
+
+    .kcbox {
+      background-color: #fff;
+      border-radius: 0.2rem;
+      @include make-col(12);
+
+      @include media-breakpoint-up(sm) {
+        @include make-col(10);
+      }
+
+      @include media-breakpoint-up(md) {
+        @include make-col(8);
+      }
+
+      @include media-breakpoint-up(lg) {
+        @include make-col(4);
+      }
+
+      .login-header {
+        margin-top: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .divider {
+        border-top: 2px solid $bodygrey;
+        margin-bottom: 1rem;
+        margin-top: 0.3rem;
+      }
+    }
+  }
+}
+

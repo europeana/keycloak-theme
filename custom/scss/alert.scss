@@ -1,0 +1,31 @@
+.alert {
+  &-error {
+    background-color: #fff;
+    border-color: #c00;
+    color: #333;
+
+    > .kc-feedback-text {
+      display: table-cell;
+      padding-left: 1.5rem;
+    }
+
+    > .pficon {
+      font-size: 0.5rem;
+      position: absolute;
+      left: 1rem;
+      top: 1.2rem;
+
+      &-error-circle-o::before {
+        color: #c00;
+        font-family: $icon-font;
+        font-weight: bold;
+        content: '\e904';
+        border: solid 1px #c00;
+        border-radius: 50%;
+        padding: 0.3em 0.3em;
+
+        @extend .icon-font;
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+.jumbotron {
+  background-position: center center;
+  background-size: cover;
+  height: 50vh;
+  min-height: 275px;
+  padding: 0;
+  position: relative;
+  margin-top: -1rem;
+
+  &::before {
+    background: rgba(41, 55, 69, 0.35);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  &::after {
+    border-bottom: 145px solid $bodygrey;
+    border-left: 60px solid transparent;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    width: 0;
+  }
+
+  .container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  h1,
+  .lead {
+    text-shadow: $textshadow;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1.75px;
+    line-height: 1.05;
+  }
+
+  .lead {
+    font-size: $font-size-small;
+    line-height: 1.5;
+  }
+
+  figcaption cite {
+    margin-right: 5rem;
+
+    @media (min-width: $bp-medium) {
+      margin-right: 1rem;
+    }
+  }
+
+  @media (min-width: $bp-large) {
+    .container {
+      align-items: flex-end;
+      padding-bottom: 4rem;
+    }
+
+    h1,
+    .lead {
+      width: 460px;
+    }
+
+    h1 {
+      font-size: 2.375rem;
+    }
+
+    .lead {
+      font-size: 1rem;
+    }
+  }
+}
+
+.exhibition-page {
+  background: white;
+  margin-top: -1rem;
+}
