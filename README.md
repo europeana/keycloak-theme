@@ -76,7 +76,7 @@ to see the custom theme.
 Directory [theme](./theme) contains all the files for the custom theme. 
 
 
-Images and fonts from [assets](./assets) directory were copied to: 
+Images from [assets](./assets) directory were copied to: 
 
 ```
 theme/login/resources
