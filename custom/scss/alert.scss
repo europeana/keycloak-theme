@@ -1,21 +1,25 @@
+$red: #c00;
+
 .alert {
+  font-size: $font-size-small;
+
   &-error {
-    background-color: #fff;
-    border-color: #c00;
-    color: #333;
+    background-color: $white;
+    border-color: $red;
+    color: $textcolor;
 
     > .kc-feedback-text {
       display: table-cell;
       padding-left: 1.5rem;
     }
 
-    > .pficon {
+    > .icon {
       font-size: 0.5rem;
       position: absolute;
       left: 1rem;
       
       &-error-circle-o::before {
-        color: #c00;
+        color: $red;
         font-family: $icon-font;
         font-size: $font-size-base;
         content: '\ea0d';
@@ -25,8 +29,8 @@
   }
 
   &-success {
-    color: #1b1e21;
-    background-color: #d6d8d9;
-    border-color: #c6c8ca;
+    color: $textcolor;
+    background-color: $offwhite;
+    border-color: $paper;
   }
 }

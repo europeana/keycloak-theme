@@ -3,7 +3,7 @@
     <#if section = "header">
         ${msg("errorTitle")}
     <#elseif section = "form">
-    <div class="kcform">
+    <div class="pt-3">
       <div class="instruction mt-3">
               <p>${message.summary?no_esc}
                 <#if client?? && client.baseUrl?has_content>

@@ -13,7 +13,7 @@
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
     <link rel="icon" href="${url.resourcesPath}/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/> 
     <#if properties.stylesCommon?has_content>
         <#list properties.stylesCommon?split(' ') as style>
             <link href="${url.resourcesCommonPath}/${style}" rel="stylesheet" />
@@ -42,56 +42,10 @@
    <div class="row justify-content-center">
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
-        <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-            <div id="kc-locale">
-                <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                    <div class="kc-dropdown" id="kc-locale-dropdown">
-                        <a href="#" id="kc-current-locale-link">${locale.current}</a>
-                        <ul>
-                            <#list locale.supported as l>
-                                <li class="kc-dropdown-item"><a href="${l.url}">${l.label}</a></li>
-                            </#list>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </#if>
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-            <#if displayRequiredFields>
-                <div class="${properties.kcContentWrapperClass!}">
-                    <div class="${properties.kcLabelWrapperClass!} subtitle">
-                        <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                    </div>
-                    <div class="col-md-10">
-                        <h1 id="kc-page-title"><#nested "header"></h1>
-                    </div>
-                </div>
-            <#else>
-                <h1 id="kc-page-title"><img src="${url.resourcesPath}/img/logo.svg" class="mw-100"/></h1>
-              </#if>
+            <h1 id="kc-page-title" role="banner"><img src="${url.resourcesPath}/img/logo.svg"/></h1>
         <#else>
-            <#if displayRequiredFields>
-                <div class="${properties.kcContentWrapperClass!}">
-                    <div class="${properties.kcLabelWrapperClass!} subtitle">
-                        <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                    </div>
-                    <div class="col-md-10">
-                        <#nested "show-username">
-                        <div class="${properties.kcFormGroupClass!}">
-                            <div id="kc-username">
-                                <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                                <a id="reset-login" href="${url.loginRestartFlowUrl}">
-                                    <div class="kc-login-tooltip">
-                                        <i class="${properties.kcResetFlowIcon!}"></i>
-                                        <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <#else>
-                <#nested "show-username">
+            <#nested "show-username">
                 <div class="${properties.kcFormGroupClass!}">
                     <div id="kc-username">
                         <label id="kc-attempted-username">${auth.attemptedUsername}</label>
@@ -103,13 +57,10 @@
                         </a>
                     </div>
                 </div>
-            </#if>
-        </#if>
+       </#if>
       </header>
-      <div id="kc-content">
-        <div id="kc-content-wrapper">
-
-          <#nested "form">
+     
+         <#nested "form">
          
          <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
          <#-- Hide warnings -->
@@ -128,17 +79,7 @@
             </div>
            </div>
           </#if>
-          </#if>
-          <#if displayInfo>
-              <div id="kc-info">
-                  <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
-                      <#nested "info">
-                  </div>
-              </div>
-        
-          </#if>
-        </div>
-      </div>
+         </#if>
     </div>
     </div>
   </div>

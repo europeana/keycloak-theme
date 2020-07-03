@@ -3,8 +3,7 @@
     <#if section = "header">
         ${msg("registerTitle")}
   <#elseif section = "form">   
-   <div>
-      <ul id="nav" class="nav justify-content-center">
+   <ul id="nav" class="nav justify-content-center">
          <li class="nav-item">
             <a href="${url.loginUrl}" target="_self" class="nav-link">
                <span>${msg("doLogIn")}</span>
@@ -16,15 +15,14 @@
             </a>
          </li>
       </ul>
-      <div class="divider"></div>
-   </div>
-   <div id="kc-form-wrapper" class="kcform">
+   <div class="divider"></div>
+   <div class="kcform">
         <div class="instruction">
           <p>
             ${msg("accountSignup")}
           </p>
         </div>
-        <form id="kc-register-form" action="${url.registrationAction}" method="post">
+        <form action="${url.registrationAction}" method="post">
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
@@ -68,7 +66,7 @@
             <div class="${properties.kcFormGroupClass!}">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="user.attributes.newsletter" name="user.attributes.newsletter"/>
-                <label for="newsletter" class="form-check-label">${msg("newsletter")}</label>
+                <label for="user.attributes.newsletter" class="form-check-label">${msg("newsletter")}</label>
               </div>   
             </div>
             
@@ -82,7 +80,7 @@
 
          <div class="${properties.kcFormGroupClass!}">
            <div class="${properties.kcInputWrapperClass!}">
-             <div id="kc-form-buttons" class="form-buttons flex-row-reverse">
+             <div class="form-buttons flex-row-reverse">
                <input class="btn btn-primary" type="submit" value="${msg("signup")}"/>
              </div>
            </div>

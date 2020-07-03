@@ -3,7 +3,6 @@
     <#if section = "header">
         ${msg("emailVerifyTitle")}
     <#elseif section = "form">
-    <div>
       <ul id="nav" class="nav justify-content-center">
         <li class="nav-item">
           <a href="" class="nav-link nuxt-link-active">
@@ -12,7 +11,6 @@
         </li>
       </ul>
     <div class="divider"></div>
-    </div>
     <div class="kcform">
       <div class="instruction">
         <p>
@@ -23,7 +21,7 @@
       </div>
       <div class="${properties.kcFormGroupClass!}">
         <div class="${properties.kcInputWrapperClass!}">
-          <div id="kc-form-buttons" class="form-buttons flex-row-reverse">
+          <div class="form-buttons flex-row-reverse">
             <a href="${url.loginAction}" class="btn btn-outline-primary text-decoration-none" role="button">${msg("emailResend")}</a>  
           </div>
         </div>
