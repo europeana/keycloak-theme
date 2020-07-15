@@ -4,10 +4,6 @@ Europeana custom Keycloak theme.
 
 ### Developer Guide
 
-Install Sass globally
-
-```npm install -g sass```
-
 
 From project root run:
 
@@ -17,12 +13,11 @@ From project root run:
 With Docker running do: 
 
 ```bash
-# chmod +x devbuild.sh
 
 ./devbuild.sh
 ```
 
-This will create a Docker Keycloak image and run a container to test the custom [theme](./theme). A [bind mount](https://docs.docker.com/storage/bind-mounts/) is used to mount the project's theme directory to the container. Caching for themes is turned off so any changes in .flt, .properties or .css files in [theme](./theme) directory can be previewed on the fly.
+This will create a Docker Keycloak image and run a container to test the custom [theme](./theme). A [bind mount](https://docs.docker.com/storage/bind-mounts/) is used to mount the project's theme directory to the container. Caching for themes is turned off so any changes in .flt, .properties or .css files in [theme](./theme) directory can be previewed by reloading the page.
 
 ### Setup a Realm and Client for the new theme
 
@@ -85,13 +80,11 @@ Directory [custom](./custom) contains the scss files used to build the theme css
 
 For theme updates to the scss do:
 
-```bash
-declare -r currentDir="$(dirname "${BASH_SOURCE[0]}")"
- 
-sass --watch --load-path=${currentDir}/node_modules --load-path=${currentDir}/assets/scss custom/scss/style.scss:theme/login/resources/css/portallogin.css --update
+```bash 
+sass --watch --load-path=./node_modules --load-path=$./assets/scss custom/scss/style.scss:theme/login/resources/css/portallogin.css --update
 ```
 
-Changes can be previewed on the fly on the keycloak url.
+Changes can be previewed by reloading the keycloak url.
 
 
 
