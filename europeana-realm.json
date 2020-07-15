@@ -1,0 +1,14 @@
+{
+  "id": "europeana",
+  "realm": "europeana",
+  "enabled": true,
+  "loginTheme": "europeana",
+  "loginWithEmailAllowed": true,
+  "registrationAllowed": true,
+  "resetPasswordAllowed": true,
+  "smtpServer": {
+    "host": "smtp",
+    "from": "admin@keycloak"
+  },
+  "verifyEmail": true
+}
