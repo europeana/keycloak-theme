@@ -2,18 +2,19 @@
 Europeana custom Keycloak theme.
 
 
-### Developer Guide
+## Developer Guide
 
 
 From project root run:
 
-```npm install```
+```
+npm install
+```
 
 
-With Docker running do: 
+With Docker running do:
 
-```bash
-
+```
 ./devbuild.sh
 ```
 
@@ -23,7 +24,7 @@ This will create a Docker Keycloak image and run a container to test the custom 
 
 Navigate to Keycloak's welcome page: ```http://localhost:10001```
 
-Login to the Administration Console using the KEYCLOAK_USER (admin) and KEYCLOAK_PASSWORD (password) credentials.
+Login to the Administration Console using the KEYCLOAK_USER ("admin") and KEYCLOAK_PASSWORD ("password") credentials.
 
 Create a new Realm (Demo) and go to **Login** tab for the realm. Change the Login settings as shown below:
 
@@ -52,7 +53,7 @@ Create a new Client (democlient) for the Realm and change settings as shown:
 
 If the client is used from portal for Authentication Implicit Flow should be set to **ON**.
 
-Navigate to **Authentication** and choose *Flows* tab. Select *Registration* from dropdown at the top and change *Profile Validation* from **REQUIRED** to **DISABLED**. 
+Navigate to **Authentication** and choose *Flows* tab. Select *Registration* from dropdown at the top and change *Profile Validation* from **REQUIRED** to **DISABLED**.
 
 ![Image of Authentication Flows](screenshots/AuthenticationFlows.png)
 
@@ -68,10 +69,10 @@ to see the custom theme.
 
 
 ## Theme updates
-Directory [theme](./theme) contains all the files for the custom theme. 
+Directory [theme](./theme) contains all the files for the custom theme.
 
 
-Images from [assets](./assets) directory were copied to: 
+Images from [assets](./assets) directory were copied to:
 
 ```
 theme/login/resources
@@ -80,14 +81,15 @@ Directory [custom](./custom) contains the scss files used to build the theme css
 
 For theme updates to the scss do:
 
-```bash 
+```bash
 sass --watch --load-path=./node_modules --load-path=$./assets/scss custom/scss/style.scss:theme/login/resources/css/portallogin.css --update
 ```
 
 Changes can be previewed by reloading the keycloak url.
 
 
+## License
 
+Licensed under the EUPL v1.2.
 
-
-
+For full details, see [LICENSE.md](LICENSE.md).
