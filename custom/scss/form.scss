@@ -1,0 +1,51 @@
+.kcform {
+  padding: 0.5rem;
+
+  label {
+    font-size: $font-size-small;
+    margin-bottom: 0;
+    padding-bottom: 0.125rem;
+  }
+
+  .form-control {
+    background: $white;
+    font-size: $font-size-base;
+    padding: 0.5rem;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .form-group {
+    &:focus-within {
+      border-color: $blue;
+      color: $blue;
+    }
+
+    .form-check {
+      padding-left: 1rem;
+
+      .form-check-input {
+        margin-left: 0;
+      }
+
+      .form-check-label {
+        margin-left: 1.25rem;
+      }
+    }
+
+    .form-buttons {
+      display: flex;
+      padding-top: 0.75rem;
+    }
+
+    &.has-error {
+      color: #a94442;
+
+      .form-control {
+        border-color: #a94442;
+      }
+    }
+  }
+}

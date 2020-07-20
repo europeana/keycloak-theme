@@ -1,0 +1,33 @@
+.nav-item {
+  font-weight: 600;
+  font-size: $font-size-small;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  .nav-link {
+    color: $mediumgrey;
+    text-decoration: none;
+
+    &.nuxt-link-active {
+      color: $blue;
+
+      &::after {
+        content: '';
+        position: absolute;
+        border-bottom: solid 3px $blue;
+        display: block;
+        width: 100%;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        bottom: -0.45rem;
+      }
+    }
+
+    span {
+      position: relative;
+    }
+  }
+}

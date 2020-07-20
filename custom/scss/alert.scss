@@ -1,0 +1,36 @@
+$red: #c00;
+
+.alert {
+  font-size: $font-size-small;
+
+  &-error {
+    background-color: $white;
+    border-color: $red;
+    color: $textcolor;
+
+    > .kc-feedback-text {
+      display: table-cell;
+      padding-left: 1.5rem;
+    }
+
+    > .icon {
+      font-size: 0.5rem;
+      position: absolute;
+      left: 1rem;
+      
+      &-error-circle-o::before {
+        color: $red;
+        font-family: $icon-font;
+        font-size: $font-size-base;
+        content: '\ea0d';
+      
+      }
+    }
+  }
+
+  &-success {
+    color: $textcolor;
+    background-color: $offwhite;
+    border-color: $paper;
+  }
+}
