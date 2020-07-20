@@ -9,20 +9,24 @@
   "private": true,
   "license": "EUPL-1.2",
   "scripts": {
+    "build": "node bin/build-europeana-keycloak-theme.js",
     "stylelint": "npx stylelint \"./custom/scss/*.scss\""
   },
   "devDependencies": {
     "@europeana/portal": "github:europeana/portal.js#v1.6.1",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
     "sass": "^1.26.10",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
-    "bootstrap": "^4.5.0",
-    "jquery": "^3.5.1",
     "stylelint-scss": "^3.18.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/europeana/keycloak-theme.git"
+  },
+  "bin": {
+    "build-europeana-keycloak-theme": "bin/build-europeana-keycloak-theme.js"
   }
 }
