@@ -11,6 +11,8 @@
   "scripts": {
     "build": "node bin/build-europeana-keycloak-theme.js",
     "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "scss:build": "sass --load-path=./node_modules scss/style.scss:theme/login/resources/css/login.css --update",
+    "scss:watch": "npm run scss:build -- --watch",
     "stylelint": "npx stylelint \"./custom/scss/*.scss\""
   },
   "devDependencies": {

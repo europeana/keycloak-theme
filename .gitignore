@@ -1,3 +1,6 @@
+# Generated resources
+/theme/login/resources
+
 # Logs
 logs
 *.log

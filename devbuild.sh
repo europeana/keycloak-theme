@@ -10,9 +10,13 @@ npm run build
 echo building image
 docker build -t europeana/keycloak-theme .
 
+echo copying build resources
+cp -r dist/login/resources theme/login/resources
+
 echo starting image
-docker container run -i --name keycloaktheme \
+docker container run --rm -i --name europeana-keycloak-theme \
   -p 10001:8080 \
-  --mount type=bind,source="$(pwd)"/dist,target=/opt/jboss/keycloak/themes/europeana \
+  --mount type=bind,source="$(pwd)"/theme,target=/opt/jboss/keycloak/themes/europeana \
   -e KEYCLOAK_USER=admin \
-  -e KEYCLOAK_PASSWORD=password europeana/keycloak-theme
+  -e KEYCLOAK_PASSWORD=password \
+  europeana/keycloak-theme
