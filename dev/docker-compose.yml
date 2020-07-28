@@ -3,16 +3,17 @@ services:
   keycloak:
     image: keycloak
     build:
-      context: ./
+      context: ../
+      dockerfile: ./dev/Dockerfile
     volumes:
       - type: bind
-        source: ./theme
+        source: ../theme
         target: /opt/jboss/keycloak/themes/europeana
     ports:
       - "10001:8080"
     environment:
       - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=password
+      - KEYCLOAK_PASSWORD
   smtp:
     image: namshi/smtp
     expose:
