@@ -11,7 +11,7 @@ echo building image
 docker build -t europeana/keycloak-theme .
 
 echo copying build resources
-cp -r dist/login/resources theme/login/resources
+cp -r dist/login/resources theme/login
 
 echo starting image
 docker container run --rm -i --name europeana-keycloak-theme \

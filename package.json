@@ -16,7 +16,7 @@
     "stylelint": "npx stylelint \"./custom/scss/*.scss\""
   },
   "devDependencies": {
-    "@europeana/portal": "https://github.com/europeana/portal.js.git#3a1c46ec959c173f88bd9e216bf7cd38f982e6f0",
+    "@europeana/portal": "github:europeana/portal.js#v1.7.0",
     "bootstrap": "^4.5.0",
     "eslint": "^7.5.0",
     "fs-extra": "^9.0.1",
