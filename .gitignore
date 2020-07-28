@@ -1,7 +1,5 @@
-/node_modules/
-/assets/
-/theme/login/resources/css/
-/theme/login/resources/js/
+# Generated resources
+/theme/login/resources
 
 # Logs
 logs
@@ -119,4 +117,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-

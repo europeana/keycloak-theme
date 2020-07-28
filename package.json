@@ -9,20 +9,29 @@
   "private": true,
   "license": "EUPL-1.2",
   "scripts": {
+    "build": "node bin/build-europeana-keycloak-theme.js",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "scss:build": "sass --load-path=./node_modules scss/style.scss:theme/login/resources/css/login.css --update",
+    "scss:watch": "npm run scss:build -- --watch",
     "stylelint": "npx stylelint \"./custom/scss/*.scss\""
   },
   "devDependencies": {
-    "@europeana/portal": "github:europeana/portal.js#v1.6.1",
+    "@europeana/portal": "https://github.com/europeana/portal.js.git#3a1c46ec959c173f88bd9e216bf7cd38f982e6f0",
+    "bootstrap": "^4.5.0",
+    "eslint": "^7.5.0",
+    "fs-extra": "^9.0.1",
+    "jquery": "^3.5.1",
     "sass": "^1.26.10",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
-    "bootstrap": "^4.5.0",
-    "jquery": "^3.5.1",
     "stylelint-scss": "^3.18.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/europeana/keycloak-theme.git"
+  },
+  "bin": {
+    "build-europeana-keycloak-theme": "bin/build-europeana-keycloak-theme.js"
   }
 }

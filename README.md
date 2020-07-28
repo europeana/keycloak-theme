@@ -77,15 +77,15 @@ Images from [assets](./assets) directory were copied to:
 ```
 theme/login/resources
 ```
-Directory [custom](./custom) contains the scss files used to build the theme css. Compiled css for theme can be found in [theme resources](./theme/login/resources/css)
+Directory [custom](./custom) contains the SCSS files used to build the theme CSS. Compiled CSS for theme can be found in [theme resources](./theme/login/resources/css)
 
-For theme updates to the scss do:
+For theme updates to the SCSS do:
 
 ```bash
-sass --watch --load-path=./node_modules --load-path=$./assets/scss custom/scss/style.scss:theme/login/resources/css/portallogin.css --update
+npm run scss:watch
 ```
 
-Changes can be previewed by reloading the keycloak url.
+Changes can be previewed by reloading the Keycloak URL.
 
 
 ## License
