@@ -31,7 +31,7 @@ Login using the `KEYCLOAK_USER` ("admin") and `KEYCLOAK_PASSWORD` ("password") c
 
 Go to the "Add realm" page: http://localhost:10001/auth/admin/master/console/#/create/realm
 
-Upload the supplied [europeana-realm.json](./dev/europeana-realm.json) file and press `Create`.
+Upload the supplied [europeana-realm.json](./keycloak/europeana-realm.json) file and press `Create`.
 This creates a "europeana" realm with login, email and theme settings, and
 authentication flows all pre-configured.
 
