@@ -65,7 +65,7 @@ Sign out of the admin console, and go to http://localhost:10001/auth/realms/euro
 
 Directory [theme](./theme) contains all the files for the custom theme.
 
-Directory [custom](./custom) contains the SCSS files used to build the theme CSS. Compiled CSS for theme can be found in [theme resources](./theme/login/resources/css)
+Directory [scss](./scss) contains the SCSS files used to build the theme CSS. Compiled CSS for theme can be found in [theme resources](./theme/login/resources/css)
 
 For theme updates to the SCSS do:
 
