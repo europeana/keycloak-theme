@@ -69,7 +69,7 @@ Directory [custom](./custom) contains the SCSS files used to build the theme CSS
 
 For theme updates to the SCSS do:
 
-```bash
+```
 npm run scss:watch
 ```
 

@@ -3,11 +3,10 @@ services:
   keycloak:
     image: keycloak
     build:
-      context: ../
-      dockerfile: ./dev/Dockerfile
+      context: .
     volumes:
       - type: bind
-        source: ../theme
+        source: ./theme
         target: /opt/jboss/keycloak/themes/europeana
     ports:
       - "10001:8080"
