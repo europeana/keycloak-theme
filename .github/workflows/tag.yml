@@ -1,0 +1,51 @@
+name: Tag
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm install
+      - run: npm run build
+      - name: Get version number
+        run: |
+          TAG_VERSION=$(echo ${{ github.ref }} | sed 's:refs/tags/\(v.*\):\1:')
+          echo "::set-env name=TAG_VERSION::${TAG_VERSION}"
+      - name: Get release asset filename
+        run: |
+          RELEASE_ASSET_FILENAME=$(echo ${GITHUB_REPOSITORY} | sed 's:/:-:g')-${TAG_VERSION}.zip
+          echo "::set-env name=RELEASE_ASSET_FILENAME::${RELEASE_ASSET_FILENAME}"
+      - name: Zip theme for release asset
+        run: |
+          cd theme
+          zip -r ../${RELEASE_ASSET_FILENAME} .
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.TAG_VERSION }}
+          release_name: ${{ env.TAG_VERSION }}
+          draft: false
+          prerelease: false
+      - name: Upload release asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.RELEASE_ASSET_FILENAME }}
+          asset_name: ${{ env.RELEASE_ASSET_FILENAME }}
+          asset_content_type: application/zip
