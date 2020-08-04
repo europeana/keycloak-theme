@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  keycloak:
+    image: keycloak
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: ./theme
+        target: /opt/jboss/keycloak/themes/europeana
+    ports:
+      - "10001:8080"
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD
+  smtp:
+    image: namshi/smtp
+    expose:
+      - "25"
