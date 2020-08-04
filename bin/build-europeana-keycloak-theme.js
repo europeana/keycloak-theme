@@ -7,19 +7,14 @@ const sass = require('sass');
 const pkgName = require('../package').name;
 console.log(`Building ${pkgName}...`);
 
-const distPath = path.resolve(__dirname, '../dist');
 const nodeModulesPath = path.resolve(__dirname, '../node_modules');
 const themePath = path.resolve(__dirname, '../theme');
 const scssPath = path.resolve(__dirname, '../scss');
 
-// Copy assets from package dependencies to dist dit
-fse.removeSync(distPath);
-
-fse.copySync(themePath, distPath);
-
+// Copy assets from package dependencies to theme dir
 const requiredDirectories = ['login/resources/css', 'login/resources/js'];
 for (const dir of requiredDirectories) {
-  const requiredPath = path.join(distPath, dir);
+  const requiredPath = path.join(themePath, dir);
   fse.ensureDirSync(requiredPath);
 }
 
@@ -32,18 +27,18 @@ const assetDependencies = [
 ];
 for (const dependency of assetDependencies) {
   const srcPath = path.join(nodeModulesPath, dependency.src);
-  const dstPath = path.join(distPath, dependency.dst);
+  const dstPath = path.join(themePath, dependency.dst);
   fse.copySync(srcPath, dstPath);
 }
 
-// Generate CSS from SCSS and write to theme dist dir
+// Generate CSS from SCSS and write to theme dir
 const scssStylePath = path.join(scssPath, 'style.scss');
 const result = sass.renderSync({
   file: scssStylePath,
   includePaths: [nodeModulesPath]
 });
 
-const loginCssPath = path.join(distPath, 'login/resources/css/login.css');
+const loginCssPath = path.join(themePath, 'login/resources/css/login.css');
 fse.writeFileSync(loginCssPath, result.css);
 
 console.log('Done.');

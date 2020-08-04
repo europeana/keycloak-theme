@@ -5,83 +5,71 @@ Europeana custom Keycloak theme.
 ## Developer Guide
 
 
+### Run Keycloak with Docker Compose
+
 From project root run:
 
 ```
 npm install
 ```
 
-
-With Docker running do:
+With Docker running, and Compose installed, do:
 
 ```
-./devbuild.sh
+KEYCLOAK_PASSWORD=password npm run dev
 ```
 
-This will create a Docker Keycloak image and run a container to test the custom [theme](./theme). A [bind mount](https://docs.docker.com/storage/bind-mounts/) is used to mount the project's theme directory to the container. Caching for themes is turned off so any changes in .flt, .properties or .css files in [theme](./theme) directory can be previewed by reloading the page.
+This will build a Docker image for Keycloak from the supplied [Dockerfile](./dev/Dockerfile) and run is as a Compose service to test the custom [theme](./theme). A [bind mount](https://docs.docker.com/storage/bind-mounts/) is used to mount the project's theme directory to the container. Caching for themes is turned off so any changes in .flt, .properties or .css files in [theme](./theme) directory can be previewed by reloading the page.
 
-### Setup a Realm and Client for the new theme
+In addition, a service for SMTP mail will be running so that password validation and reset may be tested.
 
-Navigate to Keycloak's welcome page: ```http://localhost:10001```
+### Setup a realm
 
-Login to the Administration Console using the KEYCLOAK_USER ("admin") and KEYCLOAK_PASSWORD ("password") credentials.
+Go to Keycloak's admin login page: http://localhost:10001/auth/admin/
 
-Create a new Realm (Demo) and go to **Login** tab for the realm. Change the Login settings as shown below:
+Login using the `KEYCLOAK_USER` ("admin") and `KEYCLOAK_PASSWORD` ("password") credentials.
 
-![Image of Realm](screenshots/RealmLogin.png)
+Go to the "Add realm" page: http://localhost:10001/auth/admin/master/console/#/create/realm
 
-To get Email confirmation during registration *Verify Email* must be set to **ON**, admin user's email must be set (on master realm) and Email tab on new Realm should be filled in. An example setup is shown below:
-
-![Image of Dummy Realm Email](screenshots/dummyemail.png)
-
-This is a dummy setup to get the user to the Email verification page after registration but will not actually work by sending emails. To log in with a new user account after registration go to admin console, select the new realm, go to Users, set *Email Verified* to **ON** and delete *Verify Email* from *Required user Actions*.
-
-Alternatively an example of a working setup is shown below:
-
-![Image of Realm Email](screenshots/RealmEmail.png)
-
-If gmail is used, like in the above setup, you must turn off two-step authentication (for the account in *Username*) and set **Less secure app access** from Google Account Security to **ON**. A working Email setup is required to test the Reset Password flow.
+Upload the supplied [europeana-realm.json](./keycloak/europeana-realm.json) file and press `Create`.
+This creates a "europeana" realm with login, email and theme settings, and
+authentication flows all pre-configured.
 
 
-Navigate to the **Themes** tab and select the custom theme as the **Login** theme:
+### Portal-specific configuration
 
-![Image of Realm Themes](screenshots/RealmLoginTheme.png)
-
-Create a new Client (democlient) for the Realm and change settings as shown:
-
-![Image of Realm Client](screenshots/RealmClient.png)
-
-If the client is used from portal for Authentication Implicit Flow should be set to **ON**.
-
-Navigate to **Authentication** and choose *Flows* tab. Select *Registration* from dropdown at the top and change *Profile Validation* from **REQUIRED** to **DISABLED**.
-
-![Image of Authentication Flows](screenshots/AuthenticationFlows.png)
-
-This will change the default validation on User Registration and use custom validation based on the form registration fields. Log out of admin console.
+The following optional configuration steps apply if setting up this Keycloak to work as an auth service
+for the [Europeana Portal](https://github.com/europeana/portal.js).
 
 
-Navigate to
+#### Create client scope
+Go to the "Add client scope" page: http://localhost:10001/auth/admin/master/console/#/create/client-scope/europeana
+
+Create a new client scope with name "usersets".
 
 
-http://localhost:10001/auth/realms/{realm_name}/account
+### Create client
+Go to the "Add Client" page: http://localhost:10001/auth/admin/master/console/#/create/client/europeana
 
-to see the custom theme.
+Create a new client with ID "collections_portal", then set "Implicit Flow Enabled" to **ON** and "Valid Redirect URIs" to those your Portal installation uses, e.g. `http://localhost:3000/*`
+
+Go to the "Client Scopes" tab and assign the "usersets" profile to the client.
+
+
+## Testing the theme
+
+Sign out of the admin console, and go to http://localhost:10001/auth/realms/europeana/account where you will see the custom theme.
 
 
 ## Theme updates
+
 Directory [theme](./theme) contains all the files for the custom theme.
 
-
-Images from [assets](./assets) directory were copied to:
-
-```
-theme/login/resources
-```
-Directory [custom](./custom) contains the SCSS files used to build the theme CSS. Compiled CSS for theme can be found in [theme resources](./theme/login/resources/css)
+Directory [scss](./scss) contains the SCSS files used to build the theme CSS. Compiled CSS for theme can be found in [theme resources](./theme/login/resources/css)
 
 For theme updates to the SCSS do:
 
-```bash
+```
 npm run scss:watch
 ```
 
