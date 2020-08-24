@@ -29,7 +29,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="email" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" required/>
-                    <small class="xs text-muted pl-1">${msg("req")}</small>
+                    <small class="xs text-muted px-2">${msg("req")}</small>
                 </div>
             </div>
 
@@ -38,8 +38,8 @@
                     <label for="username" class="${properties.kcLabelClass!}">${msg("usernameText")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,15}" title="${msg("usernameValid")}" required/>
-                    <small class="xs text-muted pl-1">${msg("req")} - ${msg("usernameDesc")}</small>
+                    <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,14}" title="${msg("usernameValid")}" required/>
+                    <small class="xs text-muted px-2">${msg("req")} - ${msg("usernameDesc")}</small>
                 </div>
             </div>
          
@@ -50,7 +50,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password" pattern=".{8,}"  class="${properties.kcInputClass!}" name="password" autocomplete="new-password" required/>
-                    <small class="xs text-muted pl-1">${msg("passwordDesc")}</small>
+                    <small class="xs text-muted px-2">${msg("passwordDesc")}</small>
                  </div>
             </div>
 

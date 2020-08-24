@@ -22,7 +22,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" pattern=".{8,}" autofocus autocomplete="new-password" required/>
-                    <small class="xs text-muted pl-1">${msg("passwordDesc")}</small>
+                    <small class="xs text-muted px-2">${msg("passwordDesc")}</small>
                 </div>
             </div>
 

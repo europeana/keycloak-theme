@@ -12,7 +12,7 @@
         </#list>
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
-    <link rel="icon" href="${url.resourcesPath}/favicon.ico" />
+    <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/> 
     <#if properties.stylesCommon?has_content>
         <#list properties.stylesCommon?split(' ') as style>
