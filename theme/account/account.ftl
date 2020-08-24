@@ -27,19 +27,12 @@
                 </div>
             </div>
         </#if>
-      <!--  <div class="form-group">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="user.attributes.newsletter" name="user.attributes.newsletter" <#if account.attributes.newsletter?has_content && account.attributes.newsletter == 'on'>checked</#if>/>
-                <label for="user.attributes.newsletter" class="form-check-label">${msg("newsletter")}</label>
-              </div>   
-        </div>-->
 
          <div class="${properties.kcFormGroupClass!}">
                <div class="${properties.kcInputWrapperClass!}">
                     <div class="form-buttons flex-row-reverse">
                         <input type="hidden" id="firstName" name="firstName" value="${(account.firstName!'-')}"/>
                         <input type="hidden" id="lastName" name="lastName" value="${(account.lastName!'-')}"/>
-                        <input type="hidden" name="user.attributes.newsletter" onSubmit="$(this).val(('[type=checkbox]').prop('checked') ? 'on': 'off');">
                         <input class="btn btn-primary" name="submitAction" type="submit" value="${msg("doUpdate")}"/>
                    </div>
                </div>
