@@ -600,6 +600,7 @@
     "from": "admin@keycloak"
   },
   "loginTheme": "europeana",
+  "accountTheme": "europeana",
   "eventsEnabled": false,
   "eventsListeners": [
     "jboss-logging"
