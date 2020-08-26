@@ -7,14 +7,9 @@
     <meta name="robots" content="noindex, nofollow">
 
     <title>${msg("accountManagementTitle")}</title>
-    <link rel="icon" href="${url.resourcesPath}/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/> 
-     <#if properties.imgs?has_content>
-        <#list properties.imgs?split(' ') as img>
-         <link rel="icon" href="${url.resourcesPath}/${img}/favicon.ico">
-        </#list>
-    </#if>
-      <#if properties.styles?has_content>
+    <link rel="icon" href="${url.resourcesPath}/img/favicon.ico">
+    <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
             <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
         </#list>
@@ -31,13 +26,9 @@
    <div class="row justify-content-center">
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
-      <#if properties.imgs?has_content>
-        <#list properties.imgs?split(' ') as img>
-            <h1 id="kc-page-title" role="banner">
-            <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer"><img src="${url.resourcesPath}/${img}/logo.svg"/></a>
-            <#else><img src="${url.resourcesPath}/${img}/logo.svg"/></#if></h1>
-         </#list>
-    </#if>
+         <h1 id="kc-page-title" role="banner">
+         <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer"><img src="${url.resourcesPath}/img/logo.svg"/></a>
+         <#else><img src="${url.resourcesPath}/img/logo.svg"/></#if></h1>
       </header>
       
        <ul id="nav" class="nav justify-content-center">
@@ -68,7 +59,6 @@
            <div class="${properties.kcInputWrapperClass!}">
             <div class="flex mb-2 px-2">
               <div class="alert alert-${message.type}">
-                  <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
                   <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
                   <span class="kc-feedback-text">${kcSanitize(message.summary)?no_esc}</span>
               </div>

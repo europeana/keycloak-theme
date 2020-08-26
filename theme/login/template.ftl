@@ -44,20 +44,7 @@
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
             <h1 id="kc-page-title" role="banner"><img src="${url.resourcesPath}/img/logo.svg"/></h1>
-        <#else>
-            <#nested "show-username">
-                <div class="${properties.kcFormGroupClass!}">
-                    <div id="kc-username">
-                        <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                        <a id="reset-login" href="${url.loginRestartFlowUrl}">
-                            <div class="kc-login-tooltip">
-                                <i class="${properties.kcResetFlowIcon!}"></i>
-                                <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-       </#if>
+        </#if>
       </header>
      
          <#nested "form">
@@ -69,10 +56,7 @@
            <div class="${properties.kcInputWrapperClass!}">
             <div class="flex mb-2 px-2">
               <div class="alert alert-${message.type}">
-                  <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                  <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
                   <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                  <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
                   <span class="kc-feedback-text">${kcSanitize(message.summary)?no_esc}</span>
               </div>
              </div>

@@ -42,7 +42,7 @@
         <div class="form-group">
             <div id="kc-form-buttons" class="${properties.kcInputWrapperClass!}">
                 <div class="form-buttons flex-row-reverse">
-                    <button type="submit" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="submitAction" value="Save">${msg("changePassword")}</button>
+                    <button type="submit" class="btn btn-primary" name="submitAction" value="Save">${msg("changePassword")}</button>
                 </div>
             </div>
         </div>

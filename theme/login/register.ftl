@@ -25,7 +25,7 @@
         <form action="${url.registrationAction}" method="post">
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
+                    <label for="email">${msg("email")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="email" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" required/>
@@ -35,7 +35,7 @@
 
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="username" class="${properties.kcLabelClass!}">${msg("usernameText")}</label>
+                    <label for="username">${msg("usernameText")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,14}" title="${msg("usernameValid")}" required/>
@@ -46,7 +46,7 @@
             <#if passwordRequired??>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password" class="${properties.kcLabelClass!}">${msg("passwordText")}</label>
+                    <label for="password">${msg("passwordText")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password" pattern=".{8,}"  class="${properties.kcInputClass!}" name="password" autocomplete="new-password" required/>
@@ -56,7 +56,7 @@
 
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
+                    <label for="password-confirm">${msg("passwordConfirm")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" autocomplete="new-password" required/>
