@@ -12,23 +12,23 @@
       </ul>
     <div class="divider"></div>
     <div class="kcform">
-        <form class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+        <form action="${url.loginAction}" method="post">
             <input type="email" id="username" name="username" value="${username}" autocomplete="email" readonly="readonly" style="display:none;"/>
             <input type="password" id="password" name="password" autocomplete="current-password" style="display:none;"/>
 
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
+                    <label for="password-new">${msg("passwordNew")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" pattern=".{8,}" autofocus autocomplete="new-password" required/>
-                    <small class="xs text-muted pl-1">${msg("passwordDesc")}</small>
+                    <small class="xs text-muted px-2">${msg("passwordDesc")}</small>
                 </div>
             </div>
 
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
+                    <label for="password-confirm">${msg("passwordConfirm")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password-confirm" name="password-confirm" class="${properties.kcInputClass!}" autocomplete="new-password" required/>

@@ -15,7 +15,7 @@
         <form action="${url.loginAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
+                    <label for="email">${msg("email")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <#if auth?has_content && auth.showUsername()>

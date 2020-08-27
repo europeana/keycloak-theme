@@ -29,7 +29,7 @@
   "loginWithEmailAllowed": true,
   "duplicateEmailsAllowed": false,
   "resetPasswordAllowed": true,
-  "editUsernameAllowed": false,
+  "editUsernameAllowed": true,
   "bruteForceProtected": false,
   "permanentLockout": false,
   "maxFailureWaitSeconds": 900,
@@ -600,6 +600,7 @@
     "from": "admin@keycloak"
   },
   "loginTheme": "europeana",
+  "accountTheme": "europeana",
   "eventsEnabled": false,
   "eventsListeners": [
     "jboss-logging"

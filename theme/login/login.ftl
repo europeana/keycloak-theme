@@ -21,11 +21,11 @@
             <form onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
               <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="username" class="${properties.kcLabelClass!}">${msg("emailOrUsername")}</label>
+                    <label for="username">${msg("emailOrUsername")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <#if usernameEditDisabled??>
-                        <input id="email" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
+                        <input id="email" name="username" value="${(login.username!'')}" type="text" disabled />
                     <#else>
                         <input id="email" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off" required/>
                     </#if>
@@ -34,7 +34,7 @@
 
               <div class="${properties.kcFormGroupClass!}">
                   <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
+                    <label for="password">${msg("password")}</label>
                   </div>
                   <div class="${properties.kcInputWrapperClass!}">
                     <input id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" required/>

@@ -12,7 +12,7 @@
         </#list>
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
-    <link rel="icon" href="${url.resourcesPath}/favicon.ico" />
+    <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/> 
     <#if properties.stylesCommon?has_content>
         <#list properties.stylesCommon?split(' ') as style>
@@ -44,20 +44,7 @@
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
             <h1 id="kc-page-title" role="banner"><img src="${url.resourcesPath}/img/logo.svg"/></h1>
-        <#else>
-            <#nested "show-username">
-                <div class="${properties.kcFormGroupClass!}">
-                    <div id="kc-username">
-                        <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                        <a id="reset-login" href="${url.loginRestartFlowUrl}">
-                            <div class="kc-login-tooltip">
-                                <i class="${properties.kcResetFlowIcon!}"></i>
-                                <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-       </#if>
+        </#if>
       </header>
      
          <#nested "form">
@@ -69,10 +56,7 @@
            <div class="${properties.kcInputWrapperClass!}">
             <div class="flex mb-2 px-2">
               <div class="alert alert-${message.type}">
-                  <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                  <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
                   <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                  <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
                   <span class="kc-feedback-text">${kcSanitize(message.summary)?no_esc}</span>
               </div>
              </div>

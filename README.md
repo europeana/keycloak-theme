@@ -51,7 +51,7 @@ Create a new client scope with name "usersets".
 ### Create client
 Go to the "Add Client" page: http://localhost:10001/auth/admin/master/console/#/create/client/europeana
 
-Create a new client with ID "collections_portal", then set "Implicit Flow Enabled" to **ON** and "Valid Redirect URIs" to those your Portal installation uses, e.g. `http://localhost:3000/*`
+Create a new client with ID "collections_portal", then set "Implicit Flow Enabled" to **ON** and "Valid Redirect URIs" to those your Portal installation uses, e.g. `http://localhost:3000/*`. "Base URL" should be set to the Portal URL to be used for redirect links back to the client, e.g. `http://localhost:3000/`.  
 
 Go to the "Client Scopes" tab and assign the "usersets" profile to the client.
 
