@@ -27,7 +27,8 @@
                 </div>
             </div>
         </#if>
-
+        <p>To delete your account, please email us at <a href="mailto:info@europeana.eu?subject=Delete%20account%20request&body=Please%20remove%20my%20account%20from%20Europeana">info@europeana.eu</a> with the subject line "Delete account request".
+        </p>
          <div class="${properties.kcFormGroupClass!}">
                <div class="${properties.kcInputWrapperClass!}">
                     <div class="form-buttons flex-row-reverse">
