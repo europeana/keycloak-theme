@@ -72,7 +72,7 @@
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="user.attributes.terms"
                                name="user.attributes.terms" required/>
-                        <label for="user.attributes.terms" class="form-check-label">By continuing, I confirm that I am at least 13 years old and agree to <a href="https://www.europeana.eu/en/rights/terms-of-use" target="_blank" class="blue">Europeana's Terms of Service</a> and acknowledge <a href="https://www.europeana.eu/en/rights/privacy-policy" target="_blank">Europeana's Privacy Policy</a>.</label>
+                        <label for="user.attributes.terms" class="form-check-label">I confirm that I am at least 13 years old. I confirm that I have read and accept the conditions in Europeana's <a href="https://www.europeana.eu/rights/registration-terms" target="_blank" class="blue">terms and conditions</a> and <a href="https://www.europeana.eu/rights/privacy-policy" target="_blank">privacy policy</a>.</label>
                     </div>
                 </div>
                 <div class="${properties.kcFormGroupClass!}">
