@@ -70,16 +70,16 @@
                 </#if>
                 <div class="${properties.kcFormGroupClass!}">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="user.attributes.newsletter"
-                               name="user.attributes.newsletter"/>
-                        <label for="user.attributes.newsletter" class="form-check-label">${msg("newsletter")}</label>
+                        <input type="checkbox" class="form-check-input" id="user.attributes.terms"
+                               name="user.attributes.terms" required/>
+                        <label for="user.attributes.terms" class="form-check-label">By continuing, I confirm that I am at least 13 years old and agree to <a href="https://www.europeana.eu/en/rights/terms-of-use" target="_blank" class="blue">Europeana's Terms of Service</a> and acknowledge <a href="https://www.europeana.eu/en/rights/privacy-policy" target="_blank">Europeana's Privacy Policy</a>.</label>
                     </div>
                 </div>
                 <div class="${properties.kcFormGroupClass!}">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="user.attributes.terms"
-                               name="user.attributes.terms" required/>
-                        <label for="user.attributes.terms" class="form-check-label">By continuing, I confirm that I am at least 13 years old and agree to <a href="https://www.europeana.eu/en/rights/terms-of-use" target="_blank" class="blue">Europeana's Terms of Service</a> and acknowledge <a href="https://www.europeana.eu/en/rights/privacy-policy" target="_blank">Europeana's Privacy Policy</a>.</label>
+                        <input type="checkbox" class="form-check-input" id="user.attributes.newsletter"
+                               name="user.attributes.newsletter"/>
+                        <label for="user.attributes.newsletter" class="form-check-label">${msg("newsletter")}</label>
                     </div>
                 </div>
                 <div class="${properties.kcFormGroupClass!}">
