@@ -6,7 +6,7 @@
     <ul id="nav" class="nav justify-content-center">
         <li class="nav-item">
           <a href="" class="nav-link nuxt-link-active">
-            <span>${msg("forgotPassword")}</span>
+            <span>${msg("updatePasswordTitle")}</span>
           </a>
         </li>
       </ul>

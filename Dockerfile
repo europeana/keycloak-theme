@@ -1,4 +1,4 @@
-FROM jboss/keycloak:10.0.2
+FROM quay.io/keycloak/keycloak:12.0.2
 
 WORKDIR /opt/jboss/keycloak
 
