@@ -169,7 +169,7 @@
             <#if properties.logo?has_content>
             <img class="pf-c-brand brand" src="${resourceUrl}${properties.logo}" alt="Logo">
             <#else>
-            <img class="pf-c-brand brand" src="${resourceUrl}/public/logo.svg" alt="Logo">
+            <img class="pf-c-brand brand" src="${resourceUrl}/img/logo.svg" alt="Logo">
             </#if>
           </a>
         </div>
