@@ -43,8 +43,10 @@
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-            <a href="https://www.europeana.eu">
-                <h1 id="kc-page-title" role="banner"><img src="${url.resourcesPath}/img/logo.svg"/></h1>
+            <a href="https://www.europeana.eu" aria-label="${msg("linkHome")}">
+                <h1 id="kc-page-title" role="banner">
+                    <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
+                </h1>
             </a>
         </#if>
       </header>
