@@ -13,7 +13,7 @@
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/>
     <#if properties.stylesCommon?has_content>
         <#list properties.stylesCommon?split(' ') as style>
             <link href="${url.resourcesCommonPath}/${style}" rel="stylesheet" />
@@ -43,12 +43,16 @@
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-            <h1 id="kc-page-title" role="banner"><img src="${url.resourcesPath}/img/logo.svg"/></h1>
+            <a href="https://www.europeana.eu" aria-label="${msg("linkHome")}">
+                <h1 id="kc-page-title" role="banner">
+                    <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
+                </h1>
+            </a>
         </#if>
       </header>
-     
+
          <#nested "form">
-         
+
          <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
          <#-- Hide warnings -->
          <#if message.type != 'warning'>
