@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
 
     <title>${msg("accountManagementTitle")}</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico">
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
@@ -26,11 +26,13 @@
    <div class="row justify-content-center">
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
-         <h1 id="kc-page-title" role="banner">
-         <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer"><img src="${url.resourcesPath}/img/logo.svg"/></a>
-         <#else><img src="${url.resourcesPath}/img/logo.svg"/></#if></h1>
+        <a href="https://www.europeana.eu" aria-label="${msg("linkHome")}">
+          <h1 id="kc-page-title" role="banner">
+            <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
+          </h1>
+        </a>
       </header>
-      
+
        <ul id="nav" class="nav justify-content-center">
          <li class="nav-item">
             <a href="${url.accountUrl}" target="_self" class="nav-link <#if active=='account'>nuxt-link-active</#if>">
@@ -50,10 +52,10 @@
         </ul>
         <div class="divider"></div>
         <div class="kcform">
-     
+
          <#nested "content">
          </div>
-         
+
          <#if message?has_content>
           <div class="${properties.kcFormGroupClass!}">
            <div class="${properties.kcInputWrapperClass!}">
