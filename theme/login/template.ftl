@@ -43,11 +43,15 @@
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-            <a href="https://www.europeana.eu" aria-label="${msg("linkHome")}">
-                <h1 id="kc-page-title" role="banner">
-                    <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
-                </h1>
+          <h1 id="kc-page-title" role="banner">
+          <#if referrer?has_content && referrer.url?has_content>
+            <a href="${referrer.url}" id="referrer">              
+              <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>              
             </a>
+            <#else>
+              <img src="${url.resourcesPath}/img/logo.svg"/>
+            </#if>
+          </h1>
         </#if>
       </header>
 
