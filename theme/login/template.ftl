@@ -49,7 +49,7 @@
               <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>              
             </a>
             <#else>
-              <img src="${url.resourcesPath}/img/logo.svg"/>
+              <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
             </#if>
           </h1>
         </#if>
