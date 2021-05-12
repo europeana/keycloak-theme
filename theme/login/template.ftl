@@ -44,10 +44,10 @@
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
           <h1 id="kc-page-title" role="banner">
-          <#if referrer?has_content && referrer.url?has_content>
-            <a href="${referrer.url}" id="referrer">              
-              <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>              
-            </a>
+            <#if client?? && client.baseUrl?has_content>
+              <a href="${client.baseUrl}" id="referrer">
+                <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
+              </a>
             <#else>
               <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
             </#if>
