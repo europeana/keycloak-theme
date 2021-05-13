@@ -67,15 +67,15 @@
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="user.attributes.newsletter" name="user.attributes.newsletter"/>
                 <label for="user.attributes.newsletter" class="form-check-label">${msg("newsletter")}</label>
-              </div>   
-            </div>
-            
-            <div class="${properties.kcFormGroupClass!}">
-              <div class="${properties.kcLabelWrapperClass!}">
-                <small>
-                  ${msg("terms")?no_esc}
-                </small>
+              </div>  
+              <div class="form-check">
+                <input type="checkbox" required class="form-check-input" id="user.attributes.ageconfirm" name="user.attributes.ageconfirm"/>
+                <label for="user.attributes.ageconfirm" class="form-check-label">${msg("ageconfirm")}</label>
               </div>
+              <div class="form-check">
+                <input type="checkbox" required class="form-check-input" id="user.attributes.terms" name="user.attributes.terms"/>
+                <label for="user.attributes.terms" class="form-check-label">${msg("terms")?no_esc}</label>
+              </div>   
             </div>
 
          <div class="${properties.kcFormGroupClass!}">
