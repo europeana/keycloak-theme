@@ -43,6 +43,7 @@ for the [Europeana Portal](https://github.com/europeana/portal.js).
 
 
 #### Create client scope
+
 Go to the "Add client scope" page: http://localhost:10001/auth/admin/master/console/#/create/client-scope/europeana
 
 Create a new client scope with name "usersets".
@@ -59,7 +60,7 @@ Create a new client with ID "collections_portal", then configure as follows:
 * Set `base URL` to e.g. `http://localhost:3000/`
 * Set `web origins` to `+` (to permit CORS requests from the portal app)
 
-Go to the "Client Scopes" tab and assign the "usersets" profile to the client.
+Save, then go to the "Client Scopes" tab and assign the "usersets" profile to the client.
 
 
 ## Testing the theme
