@@ -27,8 +27,8 @@
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
          <h1 id="kc-page-title" role="banner">
-         <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer"><img src="${url.resourcesPath}/img/logo.svg"/></a>
-         <#else><img src="${url.resourcesPath}/img/logo.svg"/></#if></h1>
+         <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer"><img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}" /></a>
+         <#else><img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}" /></#if></h1>
       </header>
       
        <ul id="nav" class="nav justify-content-center">
