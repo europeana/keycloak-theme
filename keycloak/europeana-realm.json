@@ -601,6 +601,8 @@
   },
   "loginTheme": "europeana",
   "accountTheme": "europeana",
+  "adminTheme": "keycloak",
+  "emailTheme": "europeana",
   "eventsEnabled": false,
   "eventsListeners": [
     "jboss-logging"
@@ -755,8 +757,35 @@
       }
     ]
   },
-  "internationalizationEnabled": false,
-  "supportedLocales": [],
+  "internationalizationEnabled": true,
+  "supportedLocales": [
+    "de",
+    "fi",
+    "pt",
+    "bg",
+    "lt",
+    "hr",
+    "lv",
+    "fr",
+    "hu",
+    "sk",
+    "sl",
+    "ga",
+    "sv",
+    "el",
+    "mt",
+    "en",
+    "it",
+    "es",
+    "et",
+    "cs",
+    "eu",
+    "pl",
+    "da",
+    "ro",
+    "nl"
+  ],
+  "defaultLocale": "en",
   "authenticationFlows": [
     {
       "id": "17cc351b-2653-4fc4-ab8b-e3ee8d65a132",
