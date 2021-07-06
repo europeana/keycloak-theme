@@ -34,14 +34,14 @@
       .form-check-label {
         margin-left: 1.25rem;
       }
-     }
+    }
 
     .form-buttons {
       display: flex;
       padding-top: 0.75rem;
 
       .btn {
-         font-weight: 600;
+        font-weight: 600;
       }
     }
 
@@ -50,6 +50,13 @@
 
       .form-control {
         border-color: #a94442;
+      }
+    }
+
+    &.form-group-consent {
+      &:focus-within {
+        border-color: initial;
+        color: initial;
       }
     }
   }
