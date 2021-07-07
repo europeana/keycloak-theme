@@ -63,11 +63,7 @@
                 </div>
             </div>
             </#if>
-            <div class="${properties.kcFormGroupClass!}">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="user.attributes.newsletter" name="user.attributes.newsletter"/>
-                <label for="user.attributes.newsletter" class="form-check-label">${msg("newsletter")}</label>
-              </div>  
+            <div class="${properties.kcFormGroupClass!} form-group-consent">
               <div class="form-check">
                 <input type="checkbox" required class="form-check-input" id="user.attributes.ageconfirm" name="user.attributes.ageconfirm"/>
                 <label for="user.attributes.ageconfirm" class="form-check-label">${msg("ageconfirm")?no_esc}</label>
