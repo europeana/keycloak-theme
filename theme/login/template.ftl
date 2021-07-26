@@ -43,7 +43,7 @@
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-          <h1 id="kc-page-title" role="banner">
+          <h1 id="kc-page-title">
             <#if client?? && client.baseUrl?has_content>
               <a href="${client.baseUrl}" id="referrer">
                 <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
