@@ -1,13 +1,13 @@
 <#macro mainLayout active bodyClass>
 <!doctype html>
-<html>
+<html lang="${locale.currentLanguageTag}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
 
     <title>${msg("accountManagementTitle")}</title>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico">
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
@@ -30,7 +30,7 @@
          <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer"><img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}" /></a>
          <#else><img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}" /></#if></h1>
       </header>
-      
+
        <ul id="nav" class="nav justify-content-center">
          <li class="nav-item">
             <a href="${url.accountUrl}" target="_self" class="nav-link <#if active=='account'>nuxt-link-active</#if>">
@@ -50,10 +50,10 @@
         </ul>
         <div class="divider"></div>
         <div class="kcform">
-     
+
          <#nested "content">
          </div>
-         
+
          <#if message?has_content>
           <div class="${properties.kcFormGroupClass!}">
            <div class="${properties.kcInputWrapperClass!}">
