@@ -54,9 +54,8 @@
           </h1>
         </#if>
       </header>
-
+      <main>
          <#nested "form">
-
          <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
          <#-- Hide warnings -->
          <#if message.type != 'warning'>
@@ -71,7 +70,8 @@
             </div>
            </div>
           </#if>
-         </#if>
+        </#if>
+      </main>
     </div>
     </div>
   </div>

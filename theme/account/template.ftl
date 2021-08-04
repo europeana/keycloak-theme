@@ -30,7 +30,7 @@
          <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer"><img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}" /></a>
          <#else><img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}" /></#if></h1>
       </header>
-
+      <nav>
        <ul id="nav" class="nav justify-content-center">
          <li class="nav-item">
             <a href="${url.accountUrl}" target="_self" class="nav-link <#if active=='account'>nuxt-link-active</#if>">
@@ -48,7 +48,9 @@
             </a>
          </li> -->
         </ul>
-        <div class="divider"></div>
+      </nav>
+      <main>
+        <div class="divider"></div>        
         <div class="kcform">
 
          <#nested "content">
@@ -64,8 +66,9 @@
               </div>
              </div>
             </div>
-           </div>
-         </#if>
+          </div>
+        </#if>
+      </main>
     </div>
     </div>
   </div>
