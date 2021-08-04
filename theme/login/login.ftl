@@ -21,7 +21,7 @@
                 <form onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                     <div class="${properties.kcFormGroupClass!}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                            <label for="username">${msg("emailOrUsername")}</label>
+                            <label for="email">${msg("emailOrUsername")}</label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
                             <#if usernameEditDisabled??>
