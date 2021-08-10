@@ -1,6 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.mainLayout active='password' bodyClass='password'; section>
-
+    <h1 id="kc-page-title">
+      ${msg("changePassword")}
+    </h1> 
      <form action="${url.passwordUrl}" class="form-horizontal" method="post">
         <input type="text" id="username" name="username" value="${(account.username!'')}" autocomplete="username" readonly="readonly" style="display:none;">
 

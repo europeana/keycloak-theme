@@ -42,16 +42,14 @@
    <div class="row justify-content-center">
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
-        <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-          <h1 id="kc-page-title">
-            <#if client?? && client.baseUrl?has_content>
-              <a href="${client.baseUrl}" id="referrer">
-                <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
-              </a>
-            <#else>
+        <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>          
+          <#if client?? && client.baseUrl?has_content>
+            <a href="${client.baseUrl}" id="referrer">
               <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
-            </#if>
-          </h1>
+            </a>
+          <#else>
+            <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("linkHome")}"/>
+          </#if>
         </#if>
       </header>
       <main>

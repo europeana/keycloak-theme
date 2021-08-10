@@ -1,6 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.mainLayout active='account' bodyClass='user'; section>
-
+    <h1 id="kc-page-title">
+      ${msg("editProfile")}
+    </h1>     
     <form action="${url.accountUrl}" class="form-horizontal" method="post">
 
         <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
