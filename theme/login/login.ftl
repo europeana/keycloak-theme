@@ -17,6 +17,9 @@
         </ul>
         <div class="divider"></div>
         <div class="kcform">
+          <h1 id="kc-page-title">
+            ${msg("doLogIn")}
+          </h1>
             <#if realm.password>
                 <form onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                     <div class="${properties.kcFormGroupClass!}">

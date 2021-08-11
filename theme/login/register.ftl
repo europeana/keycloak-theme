@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
-    <#if section = "header">
-        ${msg("registerTitle")}
+  <#if section = "header">
+     ${msg("registerTitle")}
   <#elseif section = "form">   
    <ul id="nav" class="nav justify-content-center">
          <li class="nav-item">
@@ -17,6 +17,9 @@
       </ul>
    <div class="divider"></div>
    <div class="kcform">
+        <h1 id="kc-page-title">
+          ${msg("signup")}
+        </h1>
         <div class="instruction">
           <p>
             ${msg("accountSignup")}

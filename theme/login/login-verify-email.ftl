@@ -12,6 +12,9 @@
       </ul>
     <div class="divider"></div>
     <div class="kcform">
+      <h1 id="kc-page-title">
+        ${msg("emailVerifyTitle")}
+      </h1>
       <div class="instruction">
         <p>
           ${msg("emailVerifyInstruction1")}
