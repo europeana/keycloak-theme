@@ -1,6 +1,12 @@
 <#macro mainLayout active bodyClass>
 <!doctype html>
-<html lang="${locale.currentLanguageTag}">
+<#if locale ??>
+  <html lang="${locale.currentLanguageTag}">
+<#else>
+  <html lang="en">
+</#if>
+
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -30,22 +36,22 @@
          <#else><img src="${url.resourcesPath}/img/logo.svg" alt="${msg("logo")}" /></#if>
       </header>
       <nav>
-       <ul id="nav" class="nav justify-content-center">
-         <li class="nav-item">
+        <ul id="nav" class="nav justify-content-center">
+          <li class="nav-item">
             <a href="${url.accountUrl}" target="_self" class="nav-link <#if active=='account'>nuxt-link-active</#if>">
                <span>${msg("editProfile")}</span>
             </a>
-         </li>
-         <li class="nav-item">
-            <a href="${url.passwordUrl}" class="nav-link <#if active=='password'>nuxt-link-active</#if>">
-               <span>${msg("changePassword")}</span>
-            </a>
-         </li>
-        <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
+          </li>
+           <li class="nav-item">
+              <a href="${url.passwordUrl}" class="nav-link <#if active=='password'>nuxt-link-active</#if>">
+                 <span>${msg("changePassword")}</span>
+              </a>
+           </li>
+          <li class="nav-item">
+            <a href="" class="nav-link <#if active=='delete'>nuxt-link-active</#if>">
                <span>${msg("deleteAccount")}</span>
             </a>
-         </li> -->
+          </li>
         </ul>
       </nav>
       <main>

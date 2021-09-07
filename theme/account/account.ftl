@@ -34,13 +34,6 @@
         </#if>
         <div class="${properties.kcFormGroupClass!}">
             <div class="${properties.kcInputWrapperClass!}">
-                <p>To delete your account, please email us at <a
-                            href="mailto:info@europeana.eu?subject=Delete%20account%20request&amp;body=Please%20remove%20my%20account%20from%20Europeana">info@europeana.eu</a>
-                    with the subject line "Delete account request".</p>
-            </div>
-        </div>
-        <div class="${properties.kcFormGroupClass!}">
-            <div class="${properties.kcInputWrapperClass!}">
                 <div class="form-buttons flex-row-reverse">
                     <input type="hidden" id="firstName" name="firstName" value="${(account.firstName!'-')}"/>
                     <input type="hidden" id="lastName" name="lastName" value="${(account.lastName!'-')}"/>
