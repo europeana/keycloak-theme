@@ -1,6 +1,6 @@
 ---
 docker:
-  image: europeana/keycloak-theme:latest
+  image: europeana.v2/keycloak-theme:latest
 memory: 1GB
 disk_quota: 1GB
 health-check-type: process

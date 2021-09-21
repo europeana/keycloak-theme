@@ -1,15 +1,16 @@
 <#import "template.ftl" as layout>
-<@layout.mainLayout active='delete' bodyClass='delete'; section>
-    
-    <h1 id="kc-page-title">
-      ${msg("deleteAccountConfirm")}
-    </h1> 
+<@layout.registrationLayout; section>
 
     <#if section = "header">
-      ${msg("deleteAccountConfirm")}
-    <#elseif section = "form">
+            ${msg("deleteAccountConfirm")}
 
-      <form action="${url.loginAction}" class="form-vertical" method="post">
+   <#elseif section = "form">
+  <div class="divider"></div>
+  <div class="kcform">
+    <form action="${url.loginAction}" method="post">
+     <div class="${properties.kcFormGroupClass!}">
+                <div class="${properties.kcLabelWrapperClass!}">
+
        <div class="alert alert-warning" style="margin-top:0 !important;margin-bottom:30px !important">
            <span class="pficon pficon-warning-triangle-o"></span>
            ${msg("irreversibleAction")}
@@ -22,13 +23,24 @@
        </ul>
 
         <p class="delete-account-text">${msg("finalDeletionConfirmation")}</p>
-
-        <div id="kc-form-buttons">
-            <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doConfirmDelete")}" />
+       </div>
+       </div>
+     <div class="form-group">
+     <div class="col-12">
+      <div class="form-buttons">
+            <div class="p2 flex-fill">
+            <input class="btn btn-outline-primary text-decoration-none" type="submit" value="${msg("doConfirmDelete")}" /></div>
             <#if triggered_from_aia>
-              <button class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" style="margin-left: calc(100% - 220px)" type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
+            <div class="p2">
+             <button class="btn btn-primary " type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
+             </div>
             </#if>
-        </div>
-      </form>
+          </div>
+       </div>
+      </div>
+    </form>
+   </div>
+    
    </#if>
-</@layout.mainLayout>
+
+</@layout.registrationLayout>
