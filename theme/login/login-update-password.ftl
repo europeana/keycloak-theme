@@ -13,7 +13,7 @@
     <div class="divider"></div>
     <div class="kcform">
       <h1 id="kc-page-title">
-        ${msg("forgotPassword")}
+        ${msg("updatePasswordTitle")}
       </h1>
       <form action="${url.loginAction}" method="post">
           <input type="email" id="username" name="username" value="${username}" autocomplete="email" readonly="readonly" style="display:none;"/>

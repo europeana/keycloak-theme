@@ -8,12 +8,12 @@
     "componentName": "AccountPage"
   },
   {
-    "id": "security",
-    "path": "security/signingin",
+    "id": "password",
+    "path": "password",
     "icon": "pf-icon-security",
-    "label": "accountSecurityTitle",
-    "modulePath": "/content/signingin-page/SigningInPage.js",
-    "componentName": "SigningInPage"
+    "label": "changePassword",
+    "modulePath": "/content/password-page/ChangePasswordPage.js",
+    "componentName": "ChangePasswordPage"
   },
   {
     "id": "delete-account",
