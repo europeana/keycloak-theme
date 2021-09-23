@@ -87,8 +87,7 @@ class SigningInPage extends React.Component {
 
   render() {
     return React.createElement(ContentPage, {
-      title: 'signingIn',
-      introMessage: ''
+      title: 'signingIn'
     }, React.createElement(Stack, {
       gutter: 'md'
     }, this.renderCategories()));
@@ -150,13 +149,6 @@ class SigningInPage extends React.Component {
       })));
     }
 
-    userCredentials.forEach(credential => {
-      if (!credential.userLabel) credential.userLabel = Msg.localize(credential.type);
-
-      if (credential.hasOwnProperty('createdDate') && credential.createdDate && credential.createdDate > 0) {
-        credential.strCreatedDate = TimeUtil.format(credential.createdDate);
-      }
-    });
     let updateAIA;
 
     if (credContainer.updateAction) {

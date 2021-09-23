@@ -155,20 +155,12 @@ export class AccountPage extends React.Component {
   render() {
     const fields = this.state.formFields;
     return React.createElement(ContentPage, {
-      title: 'personalInfoHtmlTitle',
-      introMessage: 'personalSubMessage'
+      title: 'personalInfoHtmlTitle'
     }, React.createElement(Form, {
       isHorizontal: true,
       onSubmit: event => this.handleSubmit(event)
-    }, !this.isRegistrationEmailAsUsername && React.createElement(FormGroup, {
-      label: Msg.localize('username'),
-      isRequired: true,
-      fieldId: 'user-name',
-      helperTextInvalid: this.state.errors.username,
-      isValid: this.state.errors.username === ''
-    }, this.isEditUserNameAllowed && React.createElement(this.UsernameInput, null), !this.isEditUserNameAllowed && React.createElement(this.RestrictedUsernameInput, null)), React.createElement(FormGroup, {
+    }, React.createElement(FormGroup, {
       label: Msg.localize('email'),
-      isRequired: true,
       fieldId: 'email-address',
       helperTextInvalid: this.state.errors.email,
       isValid: this.state.errors.email === ''
@@ -181,20 +173,35 @@ export class AccountPage extends React.Component {
       value: fields.email,
       onChange: this.handleChange,
       isValid: this.state.errors.email === ''
-    })),  React.createElement(ActionGroup, null, React.createElement(Button, {
-      type: 'submit',
-      id: 'save-btn',
-      className: 'btn',
-      variant: 'primary',
-      isDisabled: Object.values(this.state.errors).filter(e => e !== '').length !== 0
+    }), React.createElement('small', {
+      className: 'd-block xs text-muted px-2'
     }, React.createElement(Msg, {
-      msgKey: 'doSave'
-    })), React.createElement(Button, {
+      msgKey: 'emailUpdateDesc'
+    }))), !this.isRegistrationEmailAsUsername && React.createElement(FormGroup, {
+      label: Msg.localize('username'),
+      fieldId: 'user-name',
+      helperTextInvalid: this.state.errors.username,
+      isValid: this.state.errors.username === ''
+    }, this.isEditUserNameAllowed && React.createElement(this.UsernameInput, null),
+    this.isEditUserNameAllowed && React.createElement('small', {
+      className: 'd-block xs text-muted px-2'
+    }, React.createElement(Msg, {
+      msgKey: 'usernameDesc'
+    })), 
+    !this.isEditUserNameAllowed && React.createElement(this.RestrictedUsernameInput, null)), 
+    React.createElement(ActionGroup, null, React.createElement(Button, {
       id: 'cancel-btn',
       variant: 'secondary',
       onClick: this.handleCancel
     }, React.createElement(Msg, {
       msgKey: 'doCancel'
+    })), React.createElement(Button, {
+      type: 'submit',
+      id: 'save-btn',
+      variant: 'primary',
+      isDisabled: Object.values(this.state.errors).filter(e => e !== '').length !== 0
+    }, React.createElement(Msg, {
+      msgKey: 'update'
     })))), this.isDeleteAccountAllowed && React.createElement('div', {
       id: 'delete-account',
       style: {

@@ -35,10 +35,9 @@ export class ContentPage extends React.Component {
       span: 11
     }, React.createElement(Title, {
       headingLevel: "h1",
-      size: "3xl"
-    }, React.createElement("strong", null, React.createElement(Msg, {
+    }, React.createElement(Msg, {
       msgKey: this.props.title
-    })))), this.props.onRefresh && React.createElement(GridItem, {
+    }))), this.props.onRefresh && React.createElement(GridItem, {
       span: 1
     }, React.createElement(Tooltip, {
       content: React.createElement(Msg, {

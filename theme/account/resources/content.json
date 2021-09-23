@@ -4,7 +4,6 @@
     "path": "personal-info",
     "icon": "pf-icon-user",
     "label": "personalInfoHtmlTitle",
-    "descriptionLabel": "personalInfoIntroMessage",
     "modulePath": "/content/account-page/AccountPage.js",
     "componentName": "AccountPage"
   },
@@ -13,7 +12,6 @@
     "path": "security/signingin",
     "icon": "pf-icon-security",
     "label": "accountSecurityTitle",
-    "descriptionLabel": "accountSecurityIntroMessage",
     "modulePath": "/content/signingin-page/SigningInPage.js",
     "componentName": "SigningInPage"
   }
