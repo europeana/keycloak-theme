@@ -202,30 +202,6 @@ export class AccountPage extends React.Component {
       isDisabled: Object.values(this.state.errors).filter(e => e !== '').length !== 0
     }, React.createElement(Msg, {
       msgKey: 'update'
-    })))), this.isDeleteAccountAllowed && React.createElement('div', {
-      id: 'delete-account',
-      style: {
-        marginTop: '30px'
-      }
-    }, React.createElement(Expandable, {
-      toggleText: 'Delete Account'
-    }, React.createElement(Grid, {
-      gutter: 'sm'
-    }, React.createElement(GridItem, {
-      span: 6
-    }, React.createElement('p', null, React.createElement(Msg, {
-      msgKey: 'deleteAccountWarning'
-    }))), React.createElement(GridItem, {
-      span: 4
-    }, React.createElement(KeycloakContext.Consumer, null, keycloak => React.createElement(Button, {
-      id: 'delete-account-btn',
-      variant: 'danger',
-      onClick: () => this.handleDelete(keycloak),
-      className: 'delete-button'
-    }, React.createElement(Msg, {
-      msgKey: 'doDelete'
-    })))), React.createElement(GridItem, {
-      span: 2
     })))));
   }
 }

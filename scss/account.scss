@@ -35,6 +35,9 @@
   &form__group {
     @extend .form-group, .col-12;
   }
+  &form__actions {
+      @extend .d-flex, .justify-content-between;
+  }
   &button {
     @extend .btn;
     &.pf-m-secondary {
@@ -49,15 +52,12 @@
   }
 }
 
-
-.pf-c-expandable__toggle {
-  @extend .btn, .btn-danger;
-  svg {
-    display: none;
+.no-form- {
+  &wrapper {
+    padding: 1.5rem;
+    text-align: center;
   }
-}
-
-.pf-c-form__actions {
- display: flex;
- justify-content: space-between;
+  &actions {
+    @extend .d-flex, .justify-content-between;
+  }
 }
