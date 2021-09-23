@@ -14,5 +14,12 @@
     "label": "accountSecurityTitle",
     "modulePath": "/content/signingin-page/SigningInPage.js",
     "componentName": "SigningInPage"
+  },
+  {
+    "id": "delete-account",
+    "path": "delete-account",
+    "label": "deleteAccount",
+    "modulePath": "/content/delete-page/DeletePage.js",
+    "componentName": "DeletePage"
   }
 ]
