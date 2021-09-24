@@ -54,7 +54,7 @@
       @extend .btn-primary;
     }
     &.pf-m-danger {
-      @extend .btn-danger;
+      @extend .btn-danger, .text-uppercase;
     }
   }
 }
