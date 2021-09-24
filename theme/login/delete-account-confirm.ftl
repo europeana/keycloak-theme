@@ -5,36 +5,31 @@
             ${msg("deleteAccountConfirm")}
 
    <#elseif section = "form">
-  <div class="divider"></div>
   <div class="kcform">
     <form action="${url.loginAction}" method="post">
-     <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcLabelWrapperClass!}">
+      <div class="${properties.kcFormGroupClass!}">
+        <div class="${properties.kcLabelWrapperClass!}" style="text-align: center;">
+          <p style="margin-bottom: 0;">${msg("finalDeletionConfirmation1")}</p>
+          <p style="margin-bottom: 0; font-weight: 700;">${msg("finalDeletionConfirmation2")}</p>
+          <p style="margin-bottom: 1.5rem;">${msg("finalDeletionConfirmation3")}</p>
 
-       <div class="alert alert-warning" style="margin-top:0 !important;margin-bottom:30px !important">
-           <span class="pficon pficon-warning-triangle-o"></span>
-           ${msg("irreversibleAction")}
-       </div>
-
-       <p>${msg("deletingImplies")}</p>
-       <ul style="color: #72767b;list-style: disc;list-style-position: inside;">
-         <li>${msg("loggingOutImmediately")}</li>
-         <li>${msg("errasingData")}</li>
-       </ul>
-
-        <p class="delete-account-text">${msg("finalDeletionConfirmation")}</p>
-       </div>
-       </div>
+          <p style="margin-bottom: 0;">${msg("deletingImplies")}</p>
+          <ul style="list-style-position: inside;">
+            <li style="font-weight: 700;">${msg("loggingOutImmediately")}</li>
+            <li style="font-weight: 700;">${msg("errasingData")}</li>
+          </ul>
+        </div>
+      </div>
      <div class="form-group">
      <div class="col-12">
-      <div class="form-buttons">
-            <div class="p2 flex-fill">
-            <input class="btn btn-outline-primary text-decoration-none" type="submit" value="${msg("doConfirmDelete")}" /></div>
-            <#if triggered_from_aia>
+      <div class="form-buttons d-block">
+        <div class="p2 d-flex justify-content-between">
+          <#if triggered_from_aia>
             <div class="p2">
-             <button class="btn btn-primary " type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
-             </div>
-            </#if>
+              <button class="btn btn-outline-primary " type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
+            </div>
+          </#if>
+            <input class="btn btn-danger text-uppercase" type="submit" value="${msg("deleteAccount")}" /></div>
           </div>
        </div>
       </div>

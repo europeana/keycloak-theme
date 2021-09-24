@@ -26,6 +26,13 @@
   &title {
     padding-top: 0.5rem;
   }
+  &data-list {
+    list-style-type: none;
+    padding: 0;
+    &__item {
+      @extend .form-group, .col-12;
+    }
+  }
   &form {
     @extend .kcform;
   }
