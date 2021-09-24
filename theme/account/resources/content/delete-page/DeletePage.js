@@ -43,6 +43,11 @@ export class DeletePage extends React.Component {
     _defineProperty(this, 'handleDelete', keycloak => {
       new AIACommand(keycloak, 'delete_account').execute();
     });
+
+    _defineProperty(this, 'handleCancel', () => {
+      window.location.href = brandUrl;
+    });
+
   }
 
   render() {
@@ -58,13 +63,19 @@ export class DeletePage extends React.Component {
       msgKey: 'deleteAccountContinue'
     }))), React.createElement('div', {
       className: 'no-form-actions'
-    }, React.createElement(KeycloakContext.Consumer, null, keycloak => React.createElement(Button, {
+    }, React.createElement(ActionGroup, null, React.createElement(Button, {
+      id: 'cancel-btn',
+      variant: 'secondary',
+      onClick: this.handleCancel
+    }, React.createElement(Msg, {
+      msgKey: 'doCancel'
+    })), React.createElement(KeycloakContext.Consumer, null, keycloak => React.createElement(Button, {
       id: 'delete-account-btn',
       variant: 'danger',
       onClick: () => this.handleDelete(keycloak)
     }, React.createElement(Msg, {
       msgKey: 'deleteAccount'
-    }))))))
+    })))))))
   }
 }
 

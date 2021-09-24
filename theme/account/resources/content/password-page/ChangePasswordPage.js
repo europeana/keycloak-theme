@@ -23,7 +23,7 @@ function _defineProperty(obj, key, value) {
  */
 import * as React from '../../../../common/keycloak/web_modules/react.js';
 import { withRouter } from '../../../../common/keycloak/web_modules/react-router-dom.js';
-import { Button, DataList, DataListAction, DataListItemCells, DataListCell, DataListItem, DataListItemRow, Stack, StackItem, Title, TitleLevel, DataListActionVisibility, Dropdown, DropdownPosition, KebabToggle } from '../../../../common/keycloak/web_modules/@patternfly/react-core.js';
+import { ActionGroup, Button, DataList, DataListAction, DataListItemCells, DataListCell, DataListItem, DataListItemRow, Stack, StackItem, Title, TitleLevel, DataListActionVisibility, Dropdown, DropdownPosition, KebabToggle } from '../../../../common/keycloak/web_modules/@patternfly/react-core.js';
 import { AIACommand } from '../../util/AIACommand.js';
 import TimeUtil from '../../util/TimeUtil.js';
 import { AccountServiceContext } from '../../account-service/AccountServiceContext.js';
@@ -275,9 +275,22 @@ _defineProperty(ChangePasswordPage, 'contextType', AccountServiceContext);
 
 
 class CredentialAction extends React.Component {
+  constructor(props) {
+    super(props);
+    _defineProperty(this, 'handleCancel', () => {
+      window.location.href = brandUrl;
+    });
+  }
+
   render() {
     if (this.props.updateAction) {
-      return React.createElement(DataListAction, {
+      return React.createElement(ActionGroup, null, React.createElement(Button, {
+        id: 'cancel-btn',
+        variant: 'secondary',
+        onClick: this.handleCancel
+      }, React.createElement(Msg, {
+        msgKey: 'doCancel'
+      })), React.createElement(DataListAction, {
         'aria-labelledby': 'foo',
         'aria-label': 'foo action',
         id: 'updateAction-' + this.props.credential.id
@@ -287,7 +300,7 @@ class CredentialAction extends React.Component {
         onClick: () => this.props.updateAction.execute()
       }, React.createElement(Msg, {
         msgKey: 'doLogIn'
-      })));
+      }))));
     }
 
     if (this.props.removeable) {

@@ -66,6 +66,7 @@ export class AccountPage extends React.Component {
 
     _defineProperty(this, 'handleCancel', () => {
       this.fetchPersonalInfo();
+        window.location.href = brandUrl;
     });
 
     _defineProperty(this, 'handleChange', (value, event) => {
