@@ -4,17 +4,22 @@
     "path": "personal-info",
     "icon": "pf-icon-user",
     "label": "personalInfoHtmlTitle",
-    "descriptionLabel": "personalInfoIntroMessage",
     "modulePath": "/content/account-page/AccountPage.js",
     "componentName": "AccountPage"
   },
   {
-    "id": "security",
-    "path": "security/signingin",
+    "id": "password",
+    "path": "password",
     "icon": "pf-icon-security",
-    "label": "accountSecurityTitle",
-    "descriptionLabel": "accountSecurityIntroMessage",
-    "modulePath": "/content/signingin-page/SigningInPage.js",
-    "componentName": "SigningInPage"
+    "label": "changePassword",
+    "modulePath": "/content/password-page/ChangePasswordPage.js",
+    "componentName": "ChangePasswordPage"
+  },
+  {
+    "id": "delete-account",
+    "path": "delete-account",
+    "label": "deleteAccount",
+    "modulePath": "/content/delete-page/DeletePage.js",
+    "componentName": "DeletePage"
   }
 ]
