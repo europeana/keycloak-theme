@@ -1,0 +1,70 @@
+.pf-c-page__{
+  &header {
+    @extend .login-header;
+  }
+}
+
+.pf-c- {
+  &nav {
+    &__list {
+      @extend .nav, .justify-content-center;
+    }
+    &__item {
+      @extend .nav-item;
+    }
+    &__link {
+      @extend .nav-link;
+      z-index: 0;
+      &::before {
+        z-index: -1;
+      }
+      &.pf-m-current {
+        @extend .nuxt-link-active;
+      }
+    }
+  }
+  &title {
+    padding-top: 0.5rem;
+  }
+  &data-list {
+    list-style-type: none;
+    padding: 0;
+    &__item {
+      @extend .form-group, .col-12;
+    }
+  }
+  &form {
+    @extend .kcform;
+  }
+  &form-control {
+    @extend .form-control;
+  }
+  &form__group {
+    @extend .form-group, .col-12;
+  }
+  &form__actions {
+      @extend .d-flex, .justify-content-between;
+  }
+  &button {
+    @extend .btn;
+    &.pf-m-secondary {
+      @extend .btn-outline-primary;
+    }
+    &.pf-m-primary {
+      @extend .btn-primary;
+    }
+    &.pf-m-danger {
+      @extend .btn-danger, .text-uppercase;
+    }
+  }
+}
+
+.no-form- {
+  &wrapper {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  &actions {
+    @extend .d-flex, .justify-content-between;
+  }
+}
