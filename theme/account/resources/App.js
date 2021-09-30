@@ -54,28 +54,27 @@ export class App extends React.Component {
     const Header = React.createElement(PageHeader, {
       logo: React.createElement('a', {
         id: 'brandLink',
-        href: brandUrl
+        href: brandUrl,
       }, React.createElement(Brand, {
         src: brandImg,
         alt: 'Logo',
         className: 'brand'
-      })),
-      toolbar: React.createElement(PageToolbar, null),
-      avatar: username,
-      showNavToggle: true
+      }))
     });
-    const Sidebar = React.createElement(PageSidebar, {
-      nav: React.createElement(PageNav, null)
-    });
-    return React.createElement('span', {
-      style: {
-        height: '100%'
-      }
-    }, React.createElement(Page, {
-      header: Header,
-      sidebar: Sidebar,
-      isManagedSidebar: true
-    }, React.createElement(PageSection, null, makeRoutes())));
+    // Add wrapper divs used in login ftl template
+    return React.createElement('div', {
+      className: 'kcinner container-fluid'
+    }, React.createElement('div', {
+      className: 'row justify-content-center'
+    }, React.createElement('div', {
+      className: 'kcbox'
+    },
+    React.createElement(Page, {
+      header: Header
+    }, React.createElement(PageNav, null),
+    React.createElement('div', {
+      className: 'divider'
+    }), React.createElement(PageSection, null, makeRoutes())))));
   }
 }
 
