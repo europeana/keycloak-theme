@@ -1301,10 +1301,10 @@
     "auth": "",
     "ssl": ""
   },
-  "loginTheme": "europeana.v2",
-  "accountTheme": "europeana.v2",
+  "loginTheme": "europeana",
+  "accountTheme": "europeana",
   "adminTheme": "keycloak",
-  "emailTheme": "europeana.v2",
+  "emailTheme": "europeana",
   "eventsEnabled": false,
   "eventsListeners": [
     "jboss-logging"
