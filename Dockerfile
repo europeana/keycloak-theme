@@ -1,4 +1,4 @@
-FROM jboss/keycloak:10.0.2
+FROM jboss/keycloak:12.0.4
 
 WORKDIR /opt/jboss/keycloak
 
