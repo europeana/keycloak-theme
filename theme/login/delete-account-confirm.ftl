@@ -1,14 +1,15 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
-
-    <#if section = "header">
-            ${msg("deleteAccountConfirm")}
-
-   <#elseif section = "form">
+  <#if section = "header">
+    ${msg("deleteAccountConfirm")}
+  <#elseif section = "form">
   <div class="kcform">
     <form action="${url.loginAction}" method="post">
-      <div class="${properties.kcFormGroupClass!}">
-        <div class="${properties.kcLabelWrapperClass!}" style="text-align: center;">
+      <div class="${properties.kcFormGroupClass!} col-extra-padding">
+        <h1 id="kc-page-title" class="not-centred">
+          ${msg("deleteAccountConfirm")}
+        </h1>
+        <div class="${properties.kcLabelWrapperClass!}">
           <p style="margin-bottom: 0;">${msg("finalDeletionConfirmation1")}</p>
           <p style="margin-bottom: 0; font-weight: 700;">${msg("finalDeletionConfirmation2")}</p>
           <p style="margin-bottom: 1.5rem;">${msg("finalDeletionConfirmation3")}</p>
@@ -34,8 +35,6 @@
        </div>
       </div>
     </form>
-   </div>
-    
-   </#if>
-
+   </div>    
+  </#if>
 </@layout.registrationLayout>
