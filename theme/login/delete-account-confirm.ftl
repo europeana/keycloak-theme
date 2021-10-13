@@ -15,7 +15,7 @@
           <p style="margin-bottom: 1.5rem;">${msg("finalDeletionConfirmation3")}</p>
 
           <p style="margin-bottom: 0;">${msg("deletingImplies")}</p>
-          <ul style="list-style-position: inside;">
+          <ul>
             <li style="font-weight: 700;">${msg("loggingOutImmediately")}</li>
             <li style="font-weight: 700;">${msg("errasingData")}</li>
           </ul>

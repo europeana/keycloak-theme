@@ -25,6 +25,8 @@ h1 {
   padding: 0 15px;
 }
 
-.col-extra-padding {
-  padding: 0 3rem;
+@media (min-width: 992px) {
+  .col-extra-padding {
+    padding: 0 3rem;
+  }
 }
