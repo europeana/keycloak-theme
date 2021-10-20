@@ -29,17 +29,6 @@
             
             var brandImg = resourceUrl + '/img/logo.svg';
             
-
-            <#if referrer?has_content && referrer.url?has_content>
-            var brandUrl = '${referrer.url}';
-            <#else>
-                 <#if properties.logoUrl?has_content>
-                var brandUrl = '${properties.logoUrl}';
-                <#else>
-                var brandUrl = baseUrl;
-                </#if>
-            </#if>
-
             var features = {
                 isRegistrationEmailAsUsername : ${realm.registrationEmailAsUsername?c},
                 isEditUserNameAllowed : ${realm.editUsernameAllowed?c},
@@ -60,6 +49,13 @@
                 var referrer = '${referrer}';
                 var referrerName = '${referrerName}';
                 var referrerUri = '${referrer_uri?no_esc}';
+                var brandUrl = '${referrer_uri?no_esc}';
+            <#else>
+                <#if properties.logoUrl?has_content>
+                    var brandUrl = '${properties.logoUrl}';
+                <#else>
+                    var brandUrl = baseUrl;
+                </#if>
             </#if>
 
             <#if msg??>
