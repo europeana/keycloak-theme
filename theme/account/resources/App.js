@@ -23,7 +23,6 @@ function _defineProperty(obj, key, value) {
  */
 import * as React from '../../common/keycloak/web_modules/react.js';
 import { PageNav } from './PageNav.js';
-import { PageToolbar } from './PageToolbar.js';
 import { makeRoutes } from './ContentPages.js';
 import { Brand, Page, PageHeader, PageSection, PageSidebar } from '../../common/keycloak/web_modules/@patternfly/react-core.js';
 import { KeycloakContext } from './keycloak-service/KeycloakContext.js';
@@ -45,12 +44,6 @@ export class App extends React.Component {
       this.context.login();
     }
 
-    const username = React.createElement('span', {
-      style: {
-        marginLeft: '10px'
-      },
-      id: 'loggedInUser'
-    }, loggedInUserName());
     const Header = React.createElement(PageHeader, {
       logo: React.createElement('a', {
         id: 'brandLink',

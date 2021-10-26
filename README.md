@@ -108,20 +108,24 @@ The account theme is a small [React](https://reactjs.org) app for user managemen
 * theme.properties file for theme configuration
   * imports resources from the login theme (styles, logo)
 * messages folder that contains files for translated UI strings
-* resources folder that contains React app files
+* resources folder that contains customised React app files to adjust templates to our needs
 * [index.ftl](./theme/account.index.ftl), the base template in which the Account Console app is loaded
 
 #### Account Console App files
-The Account Console is a React app. It makes use of predefined components from the [PatternFly](https://www.patternfly.org) design system.
-* [Main.js](./theme/account/resources/Main.js) is the file that contains the app and gets loaded in the [index.ftl](./theme/account.index.ftl) template
-* [welcome-page-scripts](./theme/account/resources/welcome-page-scripts.js) Defines what part of the app is loaded: loading screen, react screen (the account console) or the welcome screen (which we currently never show).
-* [App.js](./theme/account/resources/App.js) this is the default component of each page with header and navigation
+The Account Console is a React app. 
+The base app can be found here https://github.com/keycloak/keycloak/tree/master/themes/src/main/resources/theme/keycloak.v2/account
+This is a TypeScript app, to get the .js files for customisation, build the app and js files will be saved under /resources.
+It makes use of predefined components from the [PatternFly](https://www.patternfly.org) design system.
+
+Some customisations are done in the following files:
+* [welcome-page-scripts](./theme/account/resources/welcome-page-scripts.js) Defines what part of the app is loaded: loading screen, react screen (the account console) or the welcome screen (which we currently never show). Customised to redirect to the user-profile page directly (i.e. not the welcome screen)
+* [App.js](./theme/account/resources/App.js) this is the default component of each page with header and navigation. Customised to remove the toolbar and sidebar.
 * [content.json](./theme/account/resources/content.json) Defines the pages which are included in the app and loaded in the page navigation [PageNav](./theme/account/resources/PageNav.js)
-* [ContentPage](./theme/account/resources/content/ContentPage.js) component base layout for each content page including the title
+* [ContentPage](./theme/account/resources/content/ContentPage.js) component base layout for each content page including the title. Customised to fix title styling.
 * [content pages](./theme/account/resources/content) Page components for the content pages. Currently we are using:
-  * [AccountPage](./theme/account/resources/content/account-page/AccountPage.js)
-  * [ChangePasswordPage](./theme/account/resources/content/password-page/ChangePasswordPage.js)
-  * [DeletePage](./theme/account/resources/content/delete-page/DeletePage.js)
+  * [AccountPage](./theme/account/resources/content/account-page/AccountPage.js) Customised to change the order of form elements and remove delete button
+  * [ChangePasswordPage](./theme/account/resources/content/password-page/ChangePasswordPage.js) Custom page derived from the [SigningInPage](https://github.com/keycloak/keycloak/blob/master/themes/src/main/resources/theme/keycloak.v2/account/src/app/content/signingin-page/SigningInPage.tsx) Customised to only show update link and help text. 
+  * [DeletePage](./theme/account/resources/content/delete-page/DeletePage.js) Custom page with delete functionality deriver from the [AccountPage](https://github.com/keycloak/keycloak/blob/master/themes/src/main/resources/theme/keycloak.v2/account/src/app/content/account-page/AccountPage.tsx) 
 
 
 ### Custom stylesheets
