@@ -1,12 +1,11 @@
 .nav-item {
-  font-weight: 600;
-  font-size: $font-size-small;
-
   &:not(:last-child) {
     margin-right: 1rem;
   }
 
   .nav-link {
+    font-weight: 600;
+    font-size: $font-size-small;
     color: $mediumgrey;
     text-decoration: none;
 
