@@ -37,6 +37,7 @@ body {
       background-color: $white;
     }
     &__sidebar {
+      max-width: 18.125rem;
       .pf-c-nav {
         &__list {
           @extend .nav;
@@ -216,7 +217,17 @@ body {
     }
   }
 
-  #nav-toggle {
+  .pf-c-dropdown {
+    &__menu-item {
+      color: $black;
+      &:hover {
+        color: $black;
+        background-color: $offwhite;
+      }
+    }
+  }
+
+  #nav-toggle, #mobileKebab {
     svg {
       fill: $black;
       vertical-align: middle;
