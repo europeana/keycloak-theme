@@ -4,7 +4,6 @@ body {
   --pf-global--FontFamily--sans-serif: #{$font-family-sans-serif};
   --pf-global--FontFamily--heading--sans-serif: #{$font-family-sans-serif};
   --pf-global--BackgroundColor--100: #{$white};
-
   --pf-global--Color--100: #{$black};
   --pf-global--Color--light-100: #{$white};
   --pf-global--Color--dark-100: #{$black};
@@ -44,6 +43,7 @@ body {
         }
         &__item {
           @extend .nav-item;
+
           margin-bottom: 1rem;
           margin-left: 1rem;
         }
@@ -54,11 +54,12 @@ body {
           &::before {
             z-index: -1;
           }
-          &:hover:after {
+          &:hover::after {
             background-color: transparent;
           }
           &.pf-m-current {
             @extend .nuxt-link-active;
+
             background-color: transparent;
           }
         }
@@ -76,6 +77,8 @@ body {
       border-radius: 0.2rem;
       margin: 60px auto;
       padding: 0.5rem;
+      width: 475px;
+
       @include make-col(12);
       @include media-breakpoint-up(sm) {
         @include make-col(10);
@@ -108,6 +111,7 @@ body {
 
   .pf-c-form {
     @extend .kcform;
+
     padding-left: 15px;
     padding-right: 15px;
     grid-gap: 1.25rem;
@@ -137,16 +141,13 @@ body {
       &:focus {
         border-color: $innovationblue;
         border-width: 1px;
+        box-shadow: none;
       }
       &:focus-visible {
         outline: transparent;
       }
       &.is-invalid {
         border-color: $red;
-      }
-  
-      &:focus {
-        box-shadow: none;
       }
       option {
         overflow: visible;
@@ -161,6 +162,58 @@ body {
     border-top: 1px solid $bodygrey;
     &__item:not(.pf-m-expanded) {
       border-bottom: 1px solid $bodygrey;
+    }
+
+    .pf-c-data-list__item[aria-labelledby='sessions'] .pf-c-data-list__item-row > div {
+      width: 100%;
+      padding-bottom: 1rem;
+    }
+
+    .pf-c-data-list__item[aria-labelledby='applications-list'] {
+      .pf-m-link {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 24px;
+        margin-top: -1px;
+      }
+
+      .pf-c-data-list__item-control {
+        padding-top: 0;
+      }
+    }
+
+    &__item-row {
+      padding-top: 1rem;
+      
+      .pf-c-data-list__cell {
+        padding-top: 0;
+
+        @include media-breakpoint-up(md) {
+          margin-right: 0;
+          margin-left: 1rem;
+            
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+
+      .pf-c-data-list__cell:empty {
+        display: none;
+      }
+    }
+  }
+
+  #nav-toggle,
+  #mobileKebab {
+    svg {
+      fill: $black;
+      vertical-align: middle;
+      transition: $standard-transition;
+    }
+    &:hover svg {
+      fill: $blue;
+      transition: $standard-transition;
     }
   }
 
@@ -180,6 +233,14 @@ body {
         display: none;
 
       }
+      span {
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+    }
+    &__content .pf-m-gutter .pf-l-grid__item {
+      padding: 0;
+      text-align: left;
     }
     .pf-l-grid {
       display: block;
@@ -188,6 +249,7 @@ body {
 
   .pf-c-button {
     @extend .btn;
+
     font-size: 0.875rem;
     font-weight: 600;
     &::after{
@@ -226,17 +288,4 @@ body {
       }
     }
   }
-
-  #nav-toggle, #mobileKebab {
-    svg {
-      fill: $black;
-      vertical-align: middle;
-      transition: $standard-transition;
-    }
-    &:hover svg {
-      fill: $blue;
-      transition: $standard-transition;
-    }
-  }
-
 }
