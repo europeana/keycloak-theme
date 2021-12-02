@@ -16,18 +16,19 @@
     .kcbox {
       background-color: $white;
       border-radius: 0.2rem;
-      @include make-col(12);
-
+      flex: 0 1 auto;
+      width: 100%;
       @include media-breakpoint-up(sm) {
-        @include make-col(10);
+        width: auto;
+        min-width: percentage(10/12);
       }
 
       @include media-breakpoint-up(md) {
-        @include make-col(8);
+        min-width: percentage(8/12);
       }
 
       @include media-breakpoint-up(lg) {
-        @include make-col(4);
+        min-width: percentage(4/12);
       }
 
       .login-header {
