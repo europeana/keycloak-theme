@@ -30,6 +30,10 @@ body {
   .pf-l-stack {
     text-align: center;
   }
+  .pf-l-gallery {
+    justify-content: center;
+    grid-template-columns: auto;
+  }
 
   .pf-c-page {
     &__header {
@@ -90,6 +94,7 @@ body {
 
       @include media-breakpoint-up(lg) {
         min-width: percentage(4/12);
+        max-width: percentage(8/12);
       }
     }
   }
