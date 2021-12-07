@@ -28,8 +28,12 @@
       }
 
       @include media-breakpoint-up(lg) {
-        min-width: percentage(4/12);
-        max-width: percentage(8/12);
+        min-width: percentage(6/12);
+      }
+
+      @include media-breakpoint-up(xl) {
+        min-width: auto;
+        width: 40rem;
       }
 
       .login-header {
