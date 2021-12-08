@@ -19,8 +19,8 @@
                 <p><a href="${actionUri}"
                     class="btn btn-primary"
                     role="button">${kcSanitize(msg("proceedWithAction"))?no_esc}</a></p>
-            <#elseif (client.baseUrl)?has_content>
-                <p><a href="${client.baseUrl}"
+            <#else>
+                <p><a href="${properties.logoUrl}"
                     class="btn btn-primary"
                     role="button">${msg("backToApplication")}</a></p>
             </#if>

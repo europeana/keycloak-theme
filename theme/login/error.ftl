@@ -9,9 +9,7 @@
       </h1>
       <div class="instruction mt-3">
         <p>${message.summary?no_esc}
-          <#if client?? && client.baseUrl?has_content>
-              <br/><a id="backToApplication" href="${client.baseUrl}">${kcSanitize(msg("backToApplication"))?no_esc}</a>
-          </#if>
+          <br/><a id="backToApplication" href="${properties.logoUrl}">${kcSanitize(msg("backToApplication"))?no_esc}</a>
         </p>
       </div>
     </div>
