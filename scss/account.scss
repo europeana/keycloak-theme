@@ -53,7 +53,6 @@ body {
         }
         &__link {
           @extend .nav-link;
-    
           z-index: 0;
           &::before {
             z-index: -1;
@@ -67,9 +66,12 @@ body {
             background-color: transparent;
           }
         }
-        
+
       }
     }
+  }
+  #loggedInUser {
+    color: $black;
   }
   #main_react_container .pf-c-page__main {
     background-color: $bodygrey;
@@ -196,14 +198,14 @@ body {
 
     &__item-row {
       padding-top: 1rem;
-      
+
       .pf-c-data-list__cell {
         padding-top: 0;
 
         @include media-breakpoint-up(md) {
           margin-right: 0;
           margin-left: 1rem;
-            
+
           &:first-child {
             margin-left: 0;
           }
@@ -268,7 +270,7 @@ body {
       content: none;
     }
     &.pf-m-secondary {
-      @extend .btn-outline-primary;      
+      @extend .btn-outline-primary;
     }
     &.pf-m-primary {
       @extend .btn-primary;
