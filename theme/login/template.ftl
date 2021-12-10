@@ -43,13 +43,9 @@
      <div class="kcbox">
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>          
-          <#if client?? && client.baseUrl?has_content>
-            <a href="${client.baseUrl}" id="referrer" aria-label="${msg("linkHome")}">
-              <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("logo")}"/>
-            </a>
-          <#else>
+          <a href="${properties.logoUrl}" id="referrer" aria-label="${msg("linkHome")}">
             <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("logo")}"/>
-          </#if>
+          </a>
         </#if>
       </header>
       <main>

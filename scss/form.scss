@@ -38,10 +38,11 @@
 
     .form-buttons {
       display: flex;
-      padding-top: 0.75rem;
+      flex-wrap: wrap;
 
       .btn {
         font-weight: 600;
+        margin-top: 0.75rem;
       }
     }
 
