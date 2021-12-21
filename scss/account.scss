@@ -52,7 +52,10 @@ body {
           margin-left: 1rem;
         }
         &__link {
+          -webkit-appearance: none;
+
           @extend .nav-link;
+          
           z-index: 0;
           &::before {
             z-index: -1;
