@@ -12,6 +12,7 @@ module.exports = {
   extends: [
     'eslint:recommended'
   ],
+  ignorePatterns: ['/theme/account/resources/content/account-page/AccountPage.js'],
   rules: {
     'array-bracket-newline': ['error', 'consistent'],
     'array-bracket-spacing': ['error', 'never'],

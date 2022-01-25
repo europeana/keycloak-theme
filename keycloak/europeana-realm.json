@@ -2117,6 +2117,6 @@
     "clientSessionMaxLifespan": "0",
     "clientOfflineSessionIdleTimeout": "0"
   },
-  "keycloakVersion": "12.0.4",
+  "keycloakVersion": "16.1.0",
   "userManagedAccessAllowed": false
 }
