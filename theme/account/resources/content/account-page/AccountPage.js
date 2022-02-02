@@ -22,6 +22,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   *
   * It has been modified to remove the First and Last name fields.
   * Specifically see the section commented: EUROPEANA EDIT
+  * It also has replaced the static text "Delete account" (line 228) with the value from the messages file.
   */
 import * as React from "../../../../common/keycloak/web_modules/react.js";
 import { ActionGroup, Button, Form, FormGroup, TextInput, Grid, GridItem, Expandable } from "../../../../common/keycloak/web_modules/@patternfly/react-core.js";
@@ -224,7 +225,7 @@ export class AccountPage extends React.Component {
         marginTop: "30px"
       }
     }, React.createElement(Expandable, {
-      toggleText: "Delete Account"
+      toggleText: Msg.localize('deleteAccount')
     }, React.createElement(Grid, {
       gutter: "sm"
     }, React.createElement(GridItem, {
