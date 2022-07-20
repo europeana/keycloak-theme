@@ -2,7 +2,7 @@
 <@layout.registrationLayout; section>
   <#if section = "header">
      ${msg("registerTitle")}
-  <#elseif section = "form">   
+  <#elseif section = "form">
    <ul id="nav" class="nav justify-content-center">
          <li class="nav-item">
             <a href="${url.loginUrl}" target="_self" class="nav-link">
@@ -24,6 +24,7 @@
           <p>
             ${msg("accountSignup")}
           </p>
+          <p>${msg("accountSignupHelpLink")?no_esc}</p>
         </div>
         <form action="${url.registrationAction}" method="post">
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
@@ -45,7 +46,7 @@
                     <small class="xs text-muted px-2">${msg("req")} - ${msg("usernameDesc")}</small>
                 </div>
             </div>
-         
+
             <#if passwordRequired??>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
@@ -74,7 +75,7 @@
               <div class="form-check">
                 <input type="checkbox" required class="form-check-input" id="user.attributes.terms" name="user.attributes.terms"/>
                   <label for="user.attributes.terms" class="form-check-label">${msg("terms")?no_esc}</label>
-              </div>   
+              </div>
             </div>
 
          <div class="${properties.kcFormGroupClass!}">
