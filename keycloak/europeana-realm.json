@@ -1360,7 +1360,7 @@
   },
   "smtpServer": {
     "host": "smtp",
-    "from": "admin@keycloak",
+    "from": "admin@auth.europeana.eu",
     "starttls": "",
     "auth": "",
     "ssl": ""
