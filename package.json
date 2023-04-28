@@ -4,35 +4,33 @@
   "description": "Europeana Keycloak theme",
   "contributors": [
     "Anna Christaki <annachristaki@think-code.io>",
-    "Richard Doe <richard.doe@europeana.eu>"
+    "Richard Doe <richard.doe@europeana.eu>",
+    "Mirjam Verloop <mirjam.verloop@europeana.eu>",
+    "Leonie Peters <leonie.peters@europeana.eu>"
   ],
   "private": true,
   "license": "EUPL-1.2",
   "scripts": {
-    "build": "node bin/build-europeana-keycloak-theme.js",
-    "dev": "npm run build && docker-compose up --build",
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "build": "node bin/build.js",
+    "dev": "./bin/docker-volume-init.sh && docker compose up --build",
     "scss:build": "sass --load-path=./node_modules scss/style.scss:theme/login/resources/css/login.css --update",
-    "scss:watch": "npm run scss:build -- --watch",
-    "stylelint": "npx stylelint \"./scss/*.scss\""
+    "scss:watch": "npm run scss:build -- --watch"
   },
   "devDependencies": {
-    "@europeana/portal": "github:europeana/portal.js#v1.7.0",
-    "bootstrap": "^4.5.0",
-    "eslint": "^7.5.0",
+    "@europeana/portal": "https://gitpkg.now.sh/europeana/portal.js/packages/portal?master",
+    "bootstrap": "^4.6.0",
+    "eslint": "^8.38.0",
     "fs-extra": "^9.0.1",
     "jquery": "^3.5.1",
-    "sass": "^1.26.10",
-    "stylelint": "^13.6.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.18.0"
+    "sass": "^1.44.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-recommended-scss": "^7.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/europeana/keycloak-theme.git"
   },
   "bin": {
-    "build-europeana-keycloak-theme": "bin/build-europeana-keycloak-theme.js"
+    "build-europeana-keycloak-theme": "bin/build.js"
   }
 }

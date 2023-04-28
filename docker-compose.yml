@@ -7,13 +7,16 @@ services:
     volumes:
       - type: bind
         source: ./theme
-        target: /opt/jboss/keycloak/themes/europeana
+        target: /opt/keycloak/themes/europeana
+      - keycloak-data-h2-db:/opt/keycloak/data/h2
     ports:
       - "10001:8080"
     environment:
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD
   smtp:
     image: namshi/smtp
     expose:
       - "25"
+volumes:
+  keycloak-data-h2-db: {}

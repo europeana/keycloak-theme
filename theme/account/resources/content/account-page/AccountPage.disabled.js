@@ -1,3 +1,16 @@
+// NOTE: disabled due to incompabitility with Keycloak 20
+// TODO: replace with equivalent for Keycloak 20, ideally at template level
+//       instead of JS
+
+/*
+ * This file is taken from the jboss/keycloak:12.0.4 docker image file:
+ * themes/keycloak.v2/account/resources/content/account-page/AccountPage.js
+ *
+ * It has been modified to remove the First and Last name fields.
+ * Specifically see the section commented: EUROPEANA EDIT
+ * It also has replaced the static text "Delete account" (line 228) with the value from the messages file.
+ */
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /*
@@ -16,14 +29,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * limitations under the License.
  */
 
- /*
-  * This file is taken from the jboss/keycloak:12.0.4 docker image file:
-  * themes/keycloak.v2/account/resources/content/account-page/AccountPage.js
-  *
-  * It has been modified to remove the First and Last name fields.
-  * Specifically see the section commented: EUROPEANA EDIT
-  * It also has replaced the static text "Delete account" (line 228) with the value from the messages file.
-  */
 import * as React from "../../../../common/keycloak/web_modules/react.js";
 import { ActionGroup, Button, Form, FormGroup, TextInput, Grid, GridItem, Expandable } from "../../../../common/keycloak/web_modules/@patternfly/react-core.js";
 import { AccountServiceContext } from "../../account-service/AccountServiceContext.js";
