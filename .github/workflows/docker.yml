@@ -41,7 +41,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          target: build-theme
+          target: theme
           push: true
           cache-from: type=gha,scope=${{ github.ref_name }}
           cache-to: type=gha,mode=max,scope=${{ github.ref_name }}
