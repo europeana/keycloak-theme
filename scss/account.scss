@@ -20,14 +20,10 @@ body {
   --pf-global--link--Color: #{$blue};
   --pf-global--link--Color--hover: #{$blue};
 
-  .pf-l-grid {
-    display: block;
-    &__item {
-      text-align: center;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
+  #spinner_screen {
+    background-color: $white;
   }
+
   .pf-l-stack {
     text-align: center;
   }
@@ -42,6 +38,8 @@ body {
     }
     &__sidebar {
       max-width: 18.125rem;
+      background-color: $white;
+
       .pf-c-nav {
         &__list {
           @extend .nav;
@@ -51,17 +49,26 @@ body {
 
           margin-bottom: 1rem;
           margin-left: 1rem;
+
+          &.pf-m-expandable::before {
+            content: none;
+          }
         }
         &__link {
           -webkit-appearance: none;
+          width: auto;
 
           @extend .nav-link;
 
           z-index: 0;
-          &::before {
-            z-index: -1;
+          &::before,
+          &::after {
+            content: none;
           }
-          &:hover::after {
+
+          &:hover,
+          &:focus {
+            color: $blue;
             background-color: transparent;
           }
           &.pf-m-current {
@@ -70,7 +77,13 @@ body {
             background-color: transparent;
           }
         }
+        &__subnav {
+          padding: 0;
 
+          .pf-c-nav__item {
+            margin-bottom: 0.5rem;
+          }
+        }
       }
     }
   }
@@ -85,21 +98,30 @@ body {
     }
     & > .pf-c-page__main-section {
       border-radius: 0.2rem;
-      margin: 60px auto;
-      padding: 0.5rem;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem;
       flex: 0 1 auto;
       width: 100%;
+
+      &:first-child {
+        margin-top: 60px;
+      }
+
+      &:last-child {
+        margin-bottom: 60px;
+      }
+
       @include media-breakpoint-up(sm) {
         width: auto;
-        min-width: percentage(10/12);
+        min-width: calc(10/12 * 100%);
       }
 
       @include media-breakpoint-up(md) {
-        min-width: percentage(8/12);
+        min-width: calc(8/12 * 100%);
       }
 
       @include media-breakpoint-up(lg) {
-        min-width: percentage(6/12);
+        min-width: calc(6/12 * 100%);
       }
 
       @include media-breakpoint-up(xl) {
@@ -114,23 +136,18 @@ body {
     strong {
       font-weight: normal;
     }
-    &.pf-m-3xl {
+    &.pf-m-2xl {
       font-size: 1.5rem;
       font-weight: normal;
       line-height: 1.175;
       margin-top: 1.5rem;
-    }
-    &.pf-m-2xl {
-      font-size: 1.25rem;
-      font-weight: normal;
     }
   }
 
   .pf-c-form {
     @extend .kcform;
 
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0;
     grid-gap: 1.25rem;
     &.pf-m-horizontal {
       .pf-c-form__group {
@@ -224,6 +241,7 @@ body {
 
   #nav-toggle,
   #mobileKebab {
+    font-size: 1.5rem;
     svg {
       fill: $black;
       vertical-align: middle;
@@ -236,8 +254,6 @@ body {
   }
 
   #delete-account .pf-c-expandable {
-    padding-left: 15px;
-    padding-right: 15px;
     &__toggle {
       @extend .btn, .btn-danger, .text-uppercase;
       //TO DO: update this in the portal scss
@@ -278,6 +294,9 @@ body {
     }
     &.pf-m-primary {
       @extend .btn-primary;
+    }
+    &.pf-m-plain { 
+      @extend .btn-light-flat;
     }
     &.pf-m-danger {
       @extend .btn-danger, .text-uppercase;

@@ -20,15 +20,15 @@
       width: 100%;
       @include media-breakpoint-up(sm) {
         width: auto;
-        min-width: percentage(10/12);
+        min-width: calc(10/12 * 100%);
       }
 
       @include media-breakpoint-up(md) {
-        min-width: percentage(8/12);
+        min-width: calc(8/12 * 100%);
       }
 
       @include media-breakpoint-up(lg) {
-        min-width: percentage(6/12);
+        min-width: calc(6/12 * 100%);
       }
 
       @include media-breakpoint-up(xl) {
