@@ -99,7 +99,7 @@ body {
     & > .pf-c-page__main-section {
       border-radius: 0.2rem;
       margin: 0 auto;
-      padding: 0.5rem 1.5rem;
+      padding: 0.5rem 1.5rem 1.5rem;
       flex: 0 1 auto;
       width: 100%;
 
@@ -253,7 +253,7 @@ body {
     }
   }
 
-  #delete-account .pf-c-expandable {
+  #delete-account .pf-c-expandable-section {
     &__toggle {
       @extend .btn, .btn-danger, .text-uppercase;
       //TO DO: update this in the portal scss
@@ -270,6 +270,7 @@ body {
       span {
         font-size: 0.875rem;
         font-weight: 600;
+        margin-left: 0;
       }
     }
     &__content .pf-m-gutter .pf-l-grid__item {
@@ -289,7 +290,8 @@ body {
     &::after{
       content: none;
     }
-    &.pf-m-secondary {
+    &.pf-m-secondary,
+    &#cancel-btn {
       @extend .btn-outline-primary;
     }
     &.pf-m-primary {
