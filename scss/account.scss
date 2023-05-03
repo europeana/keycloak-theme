@@ -146,17 +146,15 @@ body {
 
     padding: 0;
     grid-gap: 1.25rem;
-    &.pf-m-horizontal {
-      .pf-c-form__group {
-        display: block;
-        .pf-c-form__label, .pf-c-form__label-text {
-          font-size: $font-size-small;
-          font-weight: 400;
-          color: $black;
-          margin-bottom: 0;
-          padding-bottom: 0.125rem;
-          padding-top: 0;
-        }
+    .pf-c-form__group {
+      display: block;
+      .pf-c-form__label, .pf-c-form__label-text {
+        font-size: $font-size-small;
+        font-weight: 400;
+        color: $black;
+        margin-bottom: 0;
+        padding-bottom: 0.125rem;
+        padding-top: 0;
       }
     }
     &-control {
