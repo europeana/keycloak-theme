@@ -20,8 +20,6 @@ for (const dir of requiredDirectories) {
 }
 
 const assetDependencies = [
-  // TODO: why does this need jquery?
-  { resolve: 'jquery/package.json', src: 'dist/jquery.min.js', dst: 'login/resources/js/jquery.min.js' },
   // TODO: import from a CDN instead
   { resolve: 'bootstrap/package.json', src: 'dist/js/bootstrap.min.js', dst: 'login/resources/js/bootstrap.min.js' },
   { resolve: '@europeana/style/package.json', src: 'fonts', dst: 'login/resources/fonts' },
