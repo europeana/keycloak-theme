@@ -2,10 +2,10 @@
 @import 'bootstrap/scss/bootstrap';
 
 //import essential from @europeana/portal
-@import '@europeana/portal/src/assets/scss/variables';
-@import '@europeana/portal/src/assets/scss/buttons-links';
-@import '@europeana/portal/src/assets/scss/colours';
-@import '@europeana/portal/src/assets/scss/default';
+@import '@europeana/style/scss/variables';
+@import '@europeana/style/scss/buttons-links';
+@import '@europeana/style/scss/colours';
+@import '@europeana/style/scss/default';
 
 //import custom for keycloak
 @import 'fonts';

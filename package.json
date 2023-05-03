@@ -17,7 +17,7 @@
     "scss:watch": "npm run scss:build -- --watch"
   },
   "devDependencies": {
-    "@europeana/portal": "https://gitpkg.now.sh/europeana/portal.js/packages/portal?master",
+    "@europeana/style": "^1.108.3",
     "bootstrap": "^4.6.0",
     "eslint": "^8.38.0",
     "fs-extra": "^9.0.1",
