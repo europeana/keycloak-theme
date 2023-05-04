@@ -1,13 +1,9 @@
-// NOTE: disabled due to incompabitility with Keycloak 20
-// TODO: replace with equivalent for Keycloak 20, ideally at template level
-//       instead of JS
-
 /*
  * This file is taken from the compiled keycloak account console app file:
  * themes/keycloak.v2/account/resources/content/account-page/AccountPage.js
  *
  * It has been modified to remove the First and Last name fields.
- * Specifically see the section commented: EUROPEANA EDIT
+ * Specifically see the sections commented: EUROPEANA EDIT
  * It also has replaced the static text "Delete account" (line 228) with the value from the messages file.
  */
 
@@ -100,7 +96,11 @@ export class AccountPage extends React.Component {
       const isValid = form.checkValidity();
 
       if (isValid) {
-        const reqData = { ...this.state.formFields
+        const reqData = {
+          ...this.state.formFields,
+          // EUROPEANA EDIT - ADD UNDEFINED FIRSTNAME AND LASTNAME WHEN NEEDED TO BYPASS VALIDATION WARNING
+          firstName: this.state.formFields.firstName || undefined,
+          lastName: this.state.formFields.lastName || undefined
         };
         this.context.doPost("/", reqData).then(() => {
           ContentAlert.success('accountUpdatedMessage');
