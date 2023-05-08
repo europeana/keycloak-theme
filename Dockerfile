@@ -38,4 +38,4 @@ COPY ./keycloak/europeana-realm.json ./data/import/
 HEALTHCHECK --start-period=5s --interval=5s --timeout=2s \
   CMD curl -fs http://localhost:8080/auth/realms/europeana/account/ || exit 1
 
-CMD ["start", "--optimized", "--import-realm"]
+CMD ["start", "--optimized", "--import-realm", "--spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true"]
