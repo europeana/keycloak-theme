@@ -17,6 +17,11 @@ body {
   --pf-global--link--Color: #{$blue};
   --pf-global--link--Color--hover: #{$blue};
 
+  a,
+  a:not([href]):not([class]) {
+    color: $blue;
+  }
+
   #spinner_screen {
     background-color: $white;
   }
@@ -89,6 +94,26 @@ body {
   }
   #main_react_container .pf-c-page__main {
     background-color: $bodygrey;
+    margin: 0 auto;
+
+      @include media-breakpoint-up(sm) {
+        width: auto;
+        min-width: calc(10/12 * 100%);
+      }
+
+      @include media-breakpoint-up(md) {
+        min-width: calc(8/12 * 100%);
+      }
+
+      @include media-breakpoint-up(lg) {
+        min-width: calc(6/12 * 100%);
+      }
+
+      @include media-breakpoint-up(xl) {
+        min-width: 40rem;
+        width: auto;
+      }
+
     &-section {
       background-color: $white;
       padding: 0 0 1rem 0;
@@ -108,23 +133,6 @@ body {
         margin-bottom: 60px;
       }
 
-      @include media-breakpoint-up(sm) {
-        width: auto;
-        min-width: calc(10/12 * 100%);
-      }
-
-      @include media-breakpoint-up(md) {
-        min-width: calc(8/12 * 100%);
-      }
-
-      @include media-breakpoint-up(lg) {
-        min-width: calc(6/12 * 100%);
-      }
-
-      @include media-breakpoint-up(xl) {
-        min-width: auto;
-        width: 40rem;
-      }
     }
   }
 
@@ -320,6 +328,18 @@ body {
         color: $black;
         background-color: $offwhite;
       }
+    }
+  }
+
+  #welcomeScreen {
+
+    .pf-c-page__main-section .pf-c-page__main-body {
+      padding: 1.5rem;
+      margin: 0 auto;
+    }
+
+    .pf-c-card__title h2.pf-u-display-flex {
+      display: inline !important;
     }
   }
 }
