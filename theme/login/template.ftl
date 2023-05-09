@@ -12,8 +12,7 @@
         </#list>
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
-    <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,600,700&subset=latin,greek,cyrillic&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="${url.resourcesPath}${properties.favIcon}" />
     <#if properties.stylesCommon?has_content>
         <#list properties.stylesCommon?split(' ') as style>
             <link href="${url.resourcesCommonPath}/${style}" rel="stylesheet" />
@@ -44,7 +43,7 @@
       <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>          
           <a href="${properties.logoUrl}" id="referrer" aria-label="${msg("linkHome")}">
-            <img src="${url.resourcesPath}/img/logo.svg" alt="${msg("logo")}"/>
+            <img src="${url.resourcesPath}${properties.logo}" alt="${msg("logo")}"/>
           </a>
         </#if>
       </header>

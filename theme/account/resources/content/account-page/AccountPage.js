@@ -1,3 +1,12 @@
+/*
+ * This file is taken from the compiled keycloak account console app file:
+ * themes/keycloak.v2/account/resources/content/account-page/AccountPage.js
+ *
+ * It has been modified to remove the First and Last name fields.
+ * Specifically see the sections commented: EUROPEANA EDIT
+ * It also has replaced the static text "Delete account" (line 228) with the value from the messages file.
+ */
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /*
@@ -16,16 +25,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * limitations under the License.
  */
 
- /*
-  * This file is taken from the jboss/keycloak:12.0.4 docker image file:
-  * themes/keycloak.v2/account/resources/content/account-page/AccountPage.js
-  *
-  * It has been modified to remove the First and Last name fields.
-  * Specifically see the section commented: EUROPEANA EDIT
-  * It also has replaced the static text "Delete account" (line 228) with the value from the messages file.
-  */
 import * as React from "../../../../common/keycloak/web_modules/react.js";
-import { ActionGroup, Button, Form, FormGroup, TextInput, Grid, GridItem, Expandable } from "../../../../common/keycloak/web_modules/@patternfly/react-core.js";
+import { ActionGroup, Button, Form, FormGroup, TextInput, InputGroup, Grid, GridItem, ExpandableSection, ValidatedOptions, PageSection, PageSectionVariants, Text, TextVariants, TextContent } from "../../../../common/keycloak/web_modules/@patternfly/react-core.js";
 import { AccountServiceContext } from "../../account-service/AccountServiceContext.js";
 import { Msg } from "../../widgets/Msg.js";
 import { ContentPage } from "../ContentPage.js";
@@ -33,6 +34,7 @@ import { ContentAlert } from "../ContentAlert.js";
 import { LocaleSelector } from "../../widgets/LocaleSelectors.js";
 import { KeycloakContext } from "../../keycloak-service/KeycloakContext.js";
 import { AIACommand } from "../../util/AIACommand.js";
+import { ExternalLinkSquareAltIcon } from "../../../../common/keycloak/web_modules/@patternfly/react-icons.js";
 
 /**
  * @author Stan Silvert ssilvert@redhat.com (C) 2018 Red Hat Inc.
@@ -48,6 +50,10 @@ export class AccountPage extends React.Component {
     _defineProperty(this, "isEditUserNameAllowed", features.isEditUserNameAllowed);
 
     _defineProperty(this, "isDeleteAccountAllowed", features.deleteAccountAllowed);
+
+    _defineProperty(this, "isUpdateEmailFeatureEnabled", features.updateEmailFeatureEnabled);
+
+    _defineProperty(this, "isUpdateEmailActionEnabled", features.updateEmailActionEnabled);
 
     _defineProperty(this, "DEFAULT_STATE", {
       errors: {
@@ -90,7 +96,11 @@ export class AccountPage extends React.Component {
       const isValid = form.checkValidity();
 
       if (isValid) {
-        const reqData = { ...this.state.formFields
+        const reqData = {
+          ...this.state.formFields,
+          // EUROPEANA EDIT - ADD UNDEFINED FIRSTNAME AND LASTNAME WHEN NEEDED TO BYPASS VALIDATION WARNING
+          firstName: this.state.formFields.firstName || undefined,
+          lastName: this.state.formFields.lastName || undefined
         };
         this.context.doPost("/", reqData).then(() => {
           ContentAlert.success('accountUpdatedMessage');
@@ -117,7 +127,11 @@ export class AccountPage extends React.Component {
       new AIACommand(keycloak, "delete_account").execute();
     });
 
-    _defineProperty(this, "UsernameInput", () => React.createElement(TextInput, {
+    _defineProperty(this, "handleEmailUpdate", keycloak => {
+      new AIACommand(keycloak, "UPDATE_EMAIL").execute();
+    });
+
+    _defineProperty(this, "UsernameInput", () => /*#__PURE__*/React.createElement(TextInput, {
       isRequired: true,
       type: "text",
       id: "user-name",
@@ -125,11 +139,11 @@ export class AccountPage extends React.Component {
       maxLength: 254,
       value: this.state.formFields.username,
       onChange: this.handleChange,
-      isValid: this.state.errors.username === ''
+      validated: this.state.errors.username !== '' ? ValidatedOptions.error : ValidatedOptions.default
     }));
 
-    _defineProperty(this, "RestrictedUsernameInput", () => React.createElement(TextInput, {
-      isDisabled: true,
+    _defineProperty(this, "RestrictedUsernameInput", () => /*#__PURE__*/React.createElement(TextInput, {
+      isReadOnly: true,
       type: "text",
       id: "user-name",
       name: "username",
@@ -162,25 +176,30 @@ export class AccountPage extends React.Component {
 
   render() {
     const fields = this.state.formFields;
-    return React.createElement(ContentPage, {
+    return /*#__PURE__*/React.createElement(ContentPage, {
       title: "personalInfoHtmlTitle",
       introMessage: "personalSubMessage"
-    }, React.createElement(Form, {
-      isHorizontal: true,
-      onSubmit: event => this.handleSubmit(event)
-    }, !this.isRegistrationEmailAsUsername && React.createElement(FormGroup, {
-      label: Msg.localize('username'),
-      isRequired: true,
+    }, /*#__PURE__*/React.createElement(PageSection, {
+      isFilled: true,
+      variant: PageSectionVariants.light
+    }, /*#__PURE__*/React.createElement(TextContent, {
+      className: "pf-u-mb-lg"
+    }, /*#__PURE__*/React.createElement(Text, {
+      component: TextVariants.small
+    }, Msg.localize('allFieldsRequired'))), /*#__PURE__*/React.createElement(Form, {
+      onSubmit: event => this.handleSubmit(event),
+      className: "personal-info-form"
+    }, !this.isRegistrationEmailAsUsername && fields.username != undefined && /*#__PURE__*/React.createElement(FormGroup, {
+      label: Msg.localize("username"),
       fieldId: "user-name",
       helperTextInvalid: this.state.errors.username,
-      isValid: this.state.errors.username === ''
-    }, this.isEditUserNameAllowed && React.createElement(this.UsernameInput, null), !this.isEditUserNameAllowed && React.createElement(this.RestrictedUsernameInput, null)), React.createElement(FormGroup, {
+      validated: this.state.errors.username !== "" ? ValidatedOptions.error : ValidatedOptions.default
+    }, this.isEditUserNameAllowed && /*#__PURE__*/React.createElement(this.UsernameInput, null), !this.isEditUserNameAllowed && /*#__PURE__*/React.createElement(this.RestrictedUsernameInput, null)), !this.isUpdateEmailFeatureEnabled && fields.email != undefined && /*#__PURE__*/React.createElement(FormGroup, {
       label: Msg.localize('email'),
-      isRequired: true,
       fieldId: "email-address",
       helperTextInvalid: this.state.errors.email,
-      isValid: this.state.errors.email === ''
-    }, React.createElement(TextInput, {
+      validated: this.state.errors.email !== "" ? ValidatedOptions.error : ValidatedOptions.default
+    }, /*#__PURE__*/React.createElement(TextInput, {
       isRequired: true,
       type: "email",
       id: "email-address",
@@ -188,16 +207,33 @@ export class AccountPage extends React.Component {
       maxLength: 254,
       value: fields.email,
       onChange: this.handleChange,
-      isValid: this.state.errors.email === ''
-    })),
-    // EUROPEANA EDIT - REMOVED FIRST & LAST NAME INPUTS FROM HERE
-     features.isInternationalizationEnabled && React.createElement(FormGroup, {
-      label: Msg.localize('selectLocale'),
+      validated: this.state.errors.email !== "" ? ValidatedOptions.error : ValidatedOptions.default
+    })), this.isUpdateEmailFeatureEnabled && /*#__PURE__*/React.createElement(FormGroup, {
+      label: Msg.localize('email'),
+      fieldId: "email-address"
+    }, /*#__PURE__*/React.createElement(InputGroup, null, /*#__PURE__*/React.createElement(TextInput, {
+      isDisabled: true,
+      type: "email",
+      id: "email-address",
+      name: "email",
+      value: fields.email
+    }), this.isUpdateEmailActionEnabled && (!this.isRegistrationEmailAsUsername || this.isEditUserNameAllowed) && /*#__PURE__*/React.createElement(KeycloakContext.Consumer, null, keycloak => /*#__PURE__*/React.createElement(Button, {
+      id: "update-email-btn",
+      variant: "link",
+      onClick: () => this.handleEmailUpdate(keycloak),
+      icon: /*#__PURE__*/React.createElement(ExternalLinkSquareAltIcon, null),
+      iconPosition: "right"
+    }, /*#__PURE__*/React.createElement(Msg, {
+      msgKey: "updateEmail"
+    }))))), 
+// EUROPEANA EDIT - REMOVED FIRST & LAST NAME INPUTS FROM HERE
+    features.isInternationalizationEnabled && /*#__PURE__*/React.createElement(FormGroup, {
+      label: Msg.localize("selectLocale"),
       isRequired: true,
       fieldId: "locale"
-    }, React.createElement(LocaleSelector, {
+    }, /*#__PURE__*/React.createElement(LocaleSelector, {
       id: "locale-selector",
-      value: fields.attributes.locale || '',
+      value: fields.attributes.locale || "",
       onChange: value => this.setState({
         errors: this.state.errors,
         formFields: { ...this.state.formFields,
@@ -206,44 +242,44 @@ export class AccountPage extends React.Component {
           }
         }
       })
-    })), React.createElement(ActionGroup, null, React.createElement(Button, {
+    })), /*#__PURE__*/React.createElement(ActionGroup, null, /*#__PURE__*/React.createElement(Button, {
       type: "submit",
       id: "save-btn",
       variant: "primary",
-      isDisabled: Object.values(this.state.errors).filter(e => e !== '').length !== 0
-    }, React.createElement(Msg, {
+      isDisabled: Object.values(this.state.errors).filter(e => e !== "").length !== 0
+    }, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "doSave"
-    })), React.createElement(Button, {
+    })), /*#__PURE__*/React.createElement(Button, {
       id: "cancel-btn",
       variant: "secondary",
       onClick: this.handleCancel
-    }, React.createElement(Msg, {
+    }, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "doCancel"
-    })))), this.isDeleteAccountAllowed && React.createElement("div", {
+    })))), this.isDeleteAccountAllowed && /*#__PURE__*/React.createElement("div", {
       id: "delete-account",
       style: {
         marginTop: "30px"
       }
-    }, React.createElement(Expandable, {
-      toggleText: Msg.localize('deleteAccount')
-    }, React.createElement(Grid, {
-      gutter: "sm"
-    }, React.createElement(GridItem, {
+    }, /*#__PURE__*/React.createElement(ExpandableSection, {
+      toggleText: Msg.localize("deleteAccount")
+    }, /*#__PURE__*/React.createElement(Grid, {
+      hasGutter: true
+    }, /*#__PURE__*/React.createElement(GridItem, {
       span: 6
-    }, React.createElement("p", null, React.createElement(Msg, {
+    }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "deleteAccountWarning"
-    }))), React.createElement(GridItem, {
+    }))), /*#__PURE__*/React.createElement(GridItem, {
       span: 4
-    }, React.createElement(KeycloakContext.Consumer, null, keycloak => React.createElement(Button, {
+    }, /*#__PURE__*/React.createElement(KeycloakContext.Consumer, null, keycloak => /*#__PURE__*/React.createElement(Button, {
       id: "delete-account-btn",
       variant: "danger",
       onClick: () => this.handleDelete(keycloak),
       className: "delete-button"
-    }, React.createElement(Msg, {
+    }, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "doDelete"
-    })))), React.createElement(GridItem, {
+    })))), /*#__PURE__*/React.createElement(GridItem, {
       span: 2
-    })))));
+    }))))));
   }
 
 }
