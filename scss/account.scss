@@ -29,6 +29,7 @@ body {
   .pf-l-stack {
     text-align: center;
   }
+
   .pf-l-gallery {
     justify-content: center;
     grid-template-columns: auto;
@@ -38,6 +39,7 @@ body {
     &__header {
       background-color: $white;
     }
+
     &__sidebar {
       max-width: 18.125rem;
       background-color: $white;
@@ -46,6 +48,7 @@ body {
         &__list {
           @extend .nav;
         }
+
         &__item {
           @extend .nav-item;
 
@@ -56,6 +59,7 @@ body {
             content: none;
           }
         }
+
         &__link {
           -webkit-appearance: none;
           width: auto;
@@ -63,6 +67,7 @@ body {
           @extend .nav-link;
 
           z-index: 0;
+
           &::before,
           &::after {
             content: none;
@@ -73,12 +78,14 @@ body {
             color: $blue;
             background-color: transparent;
           }
+
           &.pf-m-current {
             @extend .nuxt-link-active;
 
             background-color: transparent;
           }
         }
+
         &__subnav {
           padding: 0;
 
@@ -89,41 +96,44 @@ body {
       }
     }
   }
-  #loggedInUser, #landingLoggedInUser {
+
+  #loggedInUser,
+  #landingLoggedInUser {
     color: $black;
   }
+
   #main_react_container .pf-c-page__main {
     background-color: $bodygrey;
     margin: 0 auto;
-
-      @include media-breakpoint-up(sm) {
-        width: auto;
-        min-width: calc(10/12 * 100%);
-      }
-
-      @include media-breakpoint-up(md) {
-        min-width: calc(8/12 * 100%);
-      }
-
-      @include media-breakpoint-up(lg) {
-        min-width: calc(6/12 * 100%);
-      }
-
-      @include media-breakpoint-up(xl) {
-        min-width: 40rem;
-        width: auto;
-      }
+    width: 100%;
 
     &-section {
       background-color: $white;
       padding: 0 0 1rem 0;
+      width: 100%;
+
+      @include media-breakpoint-up(sm) {
+        width: calc(10/12 * 100%);
+      }
+
+      @include media-breakpoint-up(md) {
+        width: calc(8/12 * 100%);
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: calc(6/12 * 100%);
+      }
+
+      @include media-breakpoint-up(xl) {
+        width: 40rem;
+      }
     }
+
     & > .pf-c-page__main-section {
       border-radius: 0.2rem;
       margin: 0 auto;
       padding: 0.5rem 1.5rem 1.5rem;
       flex: 0 1 auto;
-      width: 100%;
 
       &:first-child {
         margin-top: 60px;
@@ -138,9 +148,11 @@ body {
 
   .pf-c-title {
     margin-bottom: 1rem;
+
     strong {
       font-weight: normal;
     }
+
     &.pf-m-2xl {
       font-size: 1.5rem;
       font-weight: normal;
@@ -154,9 +166,12 @@ body {
 
     padding: 0;
     grid-gap: 1.25rem;
+
     .pf-c-form__group {
       display: block;
-      .pf-c-form__label, .pf-c-form__label-text {
+
+      .pf-c-form__label,
+      .pf-c-form__label-text {
         font-size: $font-size-small;
         font-weight: 400;
         color: $black;
@@ -165,6 +180,7 @@ body {
         padding-top: 0;
       }
     }
+
     &-control {
       background: $white;
       border: 1px solid $mediumgrey;
@@ -172,24 +188,30 @@ body {
       font-size: $font-size-base;
       padding: 0 1rem;
       color: $black;
+
       &:not(textarea) {
         height: 3rem;
       }
+
       &:focus {
         border-color: $innovationblue;
         border-width: 1px;
         box-shadow: none;
       }
+
       &:focus-visible {
         outline: transparent;
       }
+
       &.is-invalid {
         border-color: $red;
       }
+
       option {
         overflow: visible;
       }
     }
+
     &__actions {
       justify-content: space-between;
     }
@@ -197,6 +219,7 @@ body {
 
   .pf-c-data-list {
     border-top: 1px solid $bodygrey;
+
     &__item:not(.pf-m-expanded) {
       border-bottom: 1px solid $bodygrey;
     }
@@ -245,11 +268,13 @@ body {
   #nav-toggle,
   #mobileKebab {
     font-size: 1.5rem;
+
     svg {
       fill: $black;
       vertical-align: middle;
       transition: $standard-transition;
     }
+
     &:hover svg {
       fill: $blue;
       transition: $standard-transition;
@@ -262,24 +287,30 @@ body {
       //TO DO: update this in the portal scss
       background-color: $red;
       border-color: $red;
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         background-color: $red;
         border-color: $red;
       }
+
       svg {
         display: none;
 
       }
+
       span {
         font-size: 0.875rem;
         font-weight: 600;
         margin-left: 0;
       }
     }
+
     &__content .pf-m-gutter .pf-l-grid__item {
       padding: 0;
       text-align: left;
     }
+
     .pf-l-grid {
       display: block;
     }
@@ -290,28 +321,36 @@ body {
 
     font-size: 0.875rem;
     font-weight: 600;
-    &::after{
+
+    &::after {
       content: none;
     }
+
     &.pf-m-secondary,
     &#cancel-btn {
       @extend .btn-outline-primary;
     }
+
     &.pf-m-primary {
       @extend .btn-primary;
     }
-    &.pf-m-plain { 
+
+    &.pf-m-plain {
       @extend .btn-light-flat;
     }
+
     &.pf-m-danger {
       @extend .btn-danger, .text-uppercase;
       //TO DO: update this in the portal scss
       background-color: $red;
       border-color: $red;
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         background-color: $red;
         border-color: $red;
       }
+
       &.delete-button {
         width: auto;
         height: auto;
@@ -324,6 +363,7 @@ body {
   .pf-c-dropdown {
     &__menu-item {
       color: $black;
+
       &:hover {
         color: $black;
         background-color: $offwhite;
