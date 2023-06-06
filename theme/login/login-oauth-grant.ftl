@@ -4,22 +4,22 @@
         <#if client.attributes.logoUri??>
             <img src="${client.attributes.logoUri}"/>
         </#if>
-        <p>
-        <#if client.name?has_content>
-            ${msg("oauthGrantTitle",advancedMsg(client.name))}
-        <#else>
-            ${msg("oauthGrantTitle",client.clientId)}
-        </#if>
-        </p>
     <#elseif section = "form">
-        <div id="kc-oauth" class="content-area">
-            <h3>
+        <div id="kc-oauth" class="kcform content-area px-4">
+            <h1 id="kc-page-title">
+                <#if client.name?has_content>
+                    ${msg("oauthGrantTitle",advancedMsg(client.name))}
+                <#else>
+                    ${msg("oauthGrantTitle",client.clientId)}
+                </#if>
+            </h1>
+            <p>
                 <#if client.name?has_content>
                     ${msg("oauthGrantRequest",client.name,(realm.displayName!''))}
                 <#else>
                     ${msg("oauthGrantRequest",client.clientId,(realm.displayName!''))}
                 </#if>
-            </h3>
+            </p>
             <ul>
                 <#if oauth.clientScopesRequested??>
                     <#list oauth.clientScopesRequested as clientScope>
@@ -52,7 +52,7 @@
                 </h3>
             </#if>
 
-            <form class="form-actions" action="${url.oauthAction}" method="POST">
+            <form class="form-actions mt-4" action="${url.oauthAction}" method="POST">
                 <input type="hidden" name="code" value="${oauth.code}">
                 <div class="${properties.kcFormGroupClass!}">
                     <div id="kc-form-options">
@@ -61,9 +61,9 @@
                     </div>
 
                     <div id="kc-form-buttons">
-                        <div class="${properties.kcFormButtonsWrapperClass!}">
-                            <input class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" name="cancel" id="kc-cancel" type="submit" value="${msg("doCancel")}"/>
-                            <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="accept" id="kc-login" type="submit" value="${msg("doAllow")}"/>
+                        <div class="form-buttons justify-content-between">
+                            <input class="btn btn-outline-primary" name="cancel" id="kc-cancel" type="submit" value="${msg("doCancel")}"/>
+                            <input class="btn btn-primary" name="accept" id="kc-login" type="submit" value="${msg("doAllow")}"/>
                         </div>
                     </div>
                 </div>
