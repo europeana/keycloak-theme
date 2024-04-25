@@ -1,6 +1,6 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayMessage=false; section>
-    <#if section = "header">
+  <#if section = "pageTitle">
         ${msg("errorTitle")}
     <#elseif section = "form">
     <div class="pt-3">

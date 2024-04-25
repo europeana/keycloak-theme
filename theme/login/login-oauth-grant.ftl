@@ -1,8 +1,10 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout bodyClass="oauth"; section>
-    <#if section = "header">
-        <#if client.attributes.logoUri??>
-            <img src="${client.attributes.logoUri}"/>
+    <#if section = "pageTitle">
+        <#if client.name?has_content>
+            ${msg("oauthGrantTitle",advancedMsg(client.name))}
+        <#else>
+            ${msg("oauthGrantTitle",client.clientId)}
         </#if>
     <#elseif section = "form">
         <div id="kc-oauth" class="kcform content-area px-4">

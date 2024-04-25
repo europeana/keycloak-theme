@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true; section>
-    <#if section = "header">
-        ${msg("emailForgotTitle")}
+    <#if section = "pageTitle">
+      ${msg("forgotPassword")}
     <#elseif section = "form">
     <ul id="nav" class="nav justify-content-center">
       <li class="nav-item">
