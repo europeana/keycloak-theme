@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
-    <#if section = "header">
-        ${msg("logoutConfirmTitle")}
+    <#if section = "pageTitle">
+        ${msg("doLogout")}
     <#elseif section = "form">
       <div class="divider"></div>
       <div class="kcform">
