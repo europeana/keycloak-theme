@@ -1,6 +1,6 @@
 {
   "name": "@europeana/keycloak-theme",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "description": "Europeana Keycloak theme",
   "contributors": [
     "Anna Christaki <annachristaki@think-code.io>",
