@@ -1,0 +1,1 @@
+This directory is included to overwrite the verification email text template, in order to add the user's name.
