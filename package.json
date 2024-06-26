@@ -12,7 +12,7 @@
   "license": "EUPL-1.2",
   "scripts": {
     "build": "node bin/build.js",
-    "dev": "./bin/docker-volume-init.sh && docker compose up --build",
+    "dev": "./bin/docker-volume-init.sh && docker-compose up --build",
     "scss:build": "sass --load-path=./node_modules scss/style.scss:theme/login/resources/css/login.css --update",
     "scss:watch": "npm run scss:build -- --watch"
   },
