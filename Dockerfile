@@ -1,4 +1,4 @@
-FROM node:16-alpine AS build
+FROM node:18-alpine AS build
 
 WORKDIR /build
 
@@ -18,7 +18,7 @@ WORKDIR /opt/keycloak/themes/europeana
 COPY --from=build /build/theme ./
 
 
-FROM quay.io/keycloak/keycloak:20.0.5 AS keycloak
+FROM quay.io/keycloak/keycloak:25.0.0 AS keycloak
 
 WORKDIR /opt/keycloak
 
@@ -28,7 +28,7 @@ COPY ./keycloak/keycloak.conf ./conf/
 RUN /opt/keycloak/bin/kc.sh build --http-relative-path=/auth
 
 
-FROM quay.io/keycloak/keycloak:20.0.5
+FROM quay.io/keycloak/keycloak:25.0.0
 
 WORKDIR /opt/keycloak
 
