@@ -1,5 +1,5 @@
 /*
- * This file is taken from the compiled keycloak account console app file:
+ * This file is taken from the keyckloak.v2 jar in the compiled keycloak account console app file:
  * themes/keycloak.v2/account/resources/content/account-page/AccountPage.js
  *
  * It has been modified to remove the First and Last name fields.
@@ -7,8 +7,9 @@
  * It also has replaced the static text "Delete account" (line 228) with the value from the messages file.
  */
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 /*
  * Copyright 2018 Red Hat, Inc. and/or its affiliates.
  *
@@ -24,9 +25,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import * as React from "../../../../common/keycloak/web_modules/react.js";
-import { ActionGroup, Button, Form, FormGroup, TextInput, InputGroup, Grid, GridItem, ExpandableSection, ValidatedOptions, PageSection, PageSectionVariants, Text, TextVariants, TextContent } from "../../../../common/keycloak/web_modules/@patternfly/react-core.js";
+import * as React from "../../../keycloak.v2/web_modules/react.js";
+import { ActionGroup, Button, Form, FormGroup, TextInput, InputGroup, Grid, GridItem, ExpandableSection, ValidatedOptions, PageSection, PageSectionVariants, Text, TextVariants, TextContent } from "../../../keycloak.v2/web_modules/@patternfly/react-core.js";
 import { AccountServiceContext } from "../../account-service/AccountServiceContext.js";
 import { Msg } from "../../widgets/Msg.js";
 import { ContentPage } from "../ContentPage.js";
@@ -34,77 +34,60 @@ import { ContentAlert } from "../ContentAlert.js";
 import { LocaleSelector } from "../../widgets/LocaleSelectors.js";
 import { KeycloakContext } from "../../keycloak-service/KeycloakContext.js";
 import { AIACommand } from "../../util/AIACommand.js";
-import { ExternalLinkSquareAltIcon } from "../../../../common/keycloak/web_modules/@patternfly/react-icons.js";
-
+import { ExternalLinkSquareAltIcon } from "../../../keycloak.v2/web_modules/@patternfly/react-icons.js";
 /**
  * @author Stan Silvert ssilvert@redhat.com (C) 2018 Red Hat Inc.
  */
 export class AccountPage extends React.Component {
   constructor(props, context) {
     super(props);
-
     _defineProperty(this, "context", void 0);
-
     _defineProperty(this, "isRegistrationEmailAsUsername", features.isRegistrationEmailAsUsername);
-
     _defineProperty(this, "isEditUserNameAllowed", features.isEditUserNameAllowed);
-
     _defineProperty(this, "isDeleteAccountAllowed", features.deleteAccountAllowed);
-
     _defineProperty(this, "isUpdateEmailFeatureEnabled", features.updateEmailFeatureEnabled);
-
     _defineProperty(this, "isUpdateEmailActionEnabled", features.updateEmailActionEnabled);
-
     _defineProperty(this, "DEFAULT_STATE", {
       errors: {
+        // EUROPEANA EDIT Removed first and last name from here
         username: '',
-        firstName: '',
-        lastName: '',
         email: ''
       },
       formFields: {
+        // EUROPEANA EDIT Removed first and last name from here
         username: '',
-        firstName: '',
-        lastName: '',
         email: '',
         attributes: {}
       }
     });
-
     _defineProperty(this, "state", this.DEFAULT_STATE);
-
     _defineProperty(this, "handleCancel", () => {
       this.fetchPersonalInfo();
     });
-
     _defineProperty(this, "handleChange", (value, event) => {
       const target = event.currentTarget;
       const name = target.name;
       this.setState({
-        errors: { ...this.state.errors,
+        errors: {
+          ...this.state.errors,
           [name]: target.validationMessage
         },
-        formFields: { ...this.state.formFields,
+        formFields: {
+          ...this.state.formFields,
           [name]: value
         }
       });
     });
-
     _defineProperty(this, "handleSubmit", event => {
       event.preventDefault();
       const form = event.target;
       const isValid = form.checkValidity();
-
       if (isValid) {
         const reqData = {
-          ...this.state.formFields,
-          // EUROPEANA EDIT - ADD UNDEFINED FIRSTNAME AND LASTNAME WHEN NEEDED TO BYPASS VALIDATION WARNING
-          firstName: this.state.formFields.firstName || undefined,
-          lastName: this.state.formFields.lastName || undefined
+          ...this.state.formFields
         };
         this.context.doPost("/", reqData).then(() => {
           ContentAlert.success('accountUpdatedMessage');
-
           if (locale !== this.state.formFields.attributes.locale[0]) {
             window.location.reload();
           }
@@ -116,21 +99,19 @@ export class AccountPage extends React.Component {
           return acc;
         }, {});
         this.setState({
-          errors: { ...validationMessages
+          errors: {
+            ...validationMessages
           },
           formFields: this.state.formFields
         });
       }
     });
-
     _defineProperty(this, "handleDelete", keycloak => {
       new AIACommand(keycloak, "delete_account").execute();
     });
-
     _defineProperty(this, "handleEmailUpdate", keycloak => {
       new AIACommand(keycloak, "UPDATE_EMAIL").execute();
     });
-
     _defineProperty(this, "UsernameInput", () => /*#__PURE__*/React.createElement(TextInput, {
       isRequired: true,
       type: "text",
@@ -141,7 +122,6 @@ export class AccountPage extends React.Component {
       onChange: this.handleChange,
       validated: this.state.errors.username !== '' ? ValidatedOptions.error : ValidatedOptions.default
     }));
-
     _defineProperty(this, "RestrictedUsernameInput", () => /*#__PURE__*/React.createElement(TextInput, {
       isReadOnly: true,
       type: "text",
@@ -149,16 +129,13 @@ export class AccountPage extends React.Component {
       name: "username",
       value: this.state.formFields.username
     }));
-
     this.context = context;
     this.fetchPersonalInfo();
   }
-
   fetchPersonalInfo() {
     this.context.doGet("/").then(response => {
       this.setState(this.DEFAULT_STATE);
       const formFields = response.data;
-
       if (!formFields.attributes) {
         formFields.attributes = {
           locale: [locale]
@@ -166,14 +143,13 @@ export class AccountPage extends React.Component {
       } else if (!formFields.attributes.locale) {
         formFields.attributes.locale = [locale];
       }
-
-      this.setState({ ...{
+      this.setState({
+        ...{
           formFields: formFields
         }
       });
     });
   }
-
   render() {
     const fields = this.state.formFields;
     return /*#__PURE__*/React.createElement(ContentPage, {
@@ -194,7 +170,7 @@ export class AccountPage extends React.Component {
       fieldId: "user-name",
       helperTextInvalid: this.state.errors.username,
       validated: this.state.errors.username !== "" ? ValidatedOptions.error : ValidatedOptions.default
-    }, this.isEditUserNameAllowed && /*#__PURE__*/React.createElement(this.UsernameInput, null), !this.isEditUserNameAllowed && /*#__PURE__*/React.createElement(this.RestrictedUsernameInput, null)), !this.isUpdateEmailFeatureEnabled && fields.email != undefined && /*#__PURE__*/React.createElement(FormGroup, {
+    }, this.isEditUserNameAllowed && /*#__PURE__*/React.createElement(this.UsernameInput, null), !this.isEditUserNameAllowed && /*#__PURE__*/React.createElement(this.RestrictedUsernameInput, null)), !this.isUpdateEmailFeatureEnabled && /*#__PURE__*/React.createElement(FormGroup, {
       label: Msg.localize('email'),
       fieldId: "email-address",
       helperTextInvalid: this.state.errors.email,
@@ -225,9 +201,7 @@ export class AccountPage extends React.Component {
       iconPosition: "right"
     }, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "updateEmail"
-    }))))), 
-// EUROPEANA EDIT - REMOVED FIRST & LAST NAME INPUTS FROM HERE
-    features.isInternationalizationEnabled && /*#__PURE__*/React.createElement(FormGroup, {
+    }))))), features.isInternationalizationEnabled && /*#__PURE__*/React.createElement(FormGroup, { // EUROPEANA EDIT Removed first and last name from here
       label: Msg.localize("selectLocale"),
       isRequired: true,
       fieldId: "locale"
@@ -236,8 +210,10 @@ export class AccountPage extends React.Component {
       value: fields.attributes.locale || "",
       onChange: value => this.setState({
         errors: this.state.errors,
-        formFields: { ...this.state.formFields,
-          attributes: { ...this.state.formFields.attributes,
+        formFields: {
+          ...this.state.formFields,
+          attributes: {
+            ...this.state.formFields.attributes,
             locale: [value]
           }
         }
@@ -251,7 +227,7 @@ export class AccountPage extends React.Component {
       msgKey: "doSave"
     })), /*#__PURE__*/React.createElement(Button, {
       id: "cancel-btn",
-      variant: "secondary",
+      variant: "link",
       onClick: this.handleCancel
     }, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "doCancel"
@@ -281,10 +257,7 @@ export class AccountPage extends React.Component {
       span: 2
     }))))));
   }
-
 }
-
 _defineProperty(AccountPage, "contextType", AccountServiceContext);
-
 ;
 //# sourceMappingURL=AccountPage.js.map
