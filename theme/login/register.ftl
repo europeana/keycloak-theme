@@ -46,6 +46,26 @@
                     <small class="xs text-muted px-2">${msg("req")} - ${msg("usernameDesc")}</small>
                 </div>
             </div>
+            
+            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
+                <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="first-name">${msg("firstName")}</label>
+                </div>
+                <div class="${properties.kcInputWrapperClass!}">
+                    <input type="text" id="first-name" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" autocomplete="given-name" required/>
+                    <small class="xs text-muted px-2">${msg("req")}</small>
+                </div>
+            </div>
+
+            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
+                <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="last-name">${msg("lastName")}</label>
+                </div>
+                <div class="${properties.kcInputWrapperClass!}">
+                    <input type="text" id="last-name" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" autocomplete="family-name" required/>
+                    <small class="xs text-muted px-2">${msg("req")}</small>
+                </div>
+            </div>
 
             <#if passwordRequired??>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
