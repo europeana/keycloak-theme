@@ -1,0 +1,111 @@
+
+/* Europeana page background */
+
+#keycloak-bg {
+  background: #eee;
+}
+
+/* Europeana logo and header */
+
+#kc-header {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  padding: 2rem 0 1rem;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+#kc-header-wrapper {
+  font-size: 0;
+  width: 220px;
+  height: 60px;
+  margin-inline: auto;
+  background: url("../img/logo.svg") center / contain no-repeat;
+  margin-bottom: 24px;
+}
+
+/* Login container */
+
+.pf-v5-c-login__container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "header"
+    "main";
+  width: 100%;
+  max-width: 649px;
+  margin-inline: auto;
+  margin-bottom: 0;
+  padding-inline: 0;
+}
+
+.pf-v5-c-login__main {
+  width: 100%;
+  max-width: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+/* Remove Keycloak's blue accent from the login panel */
+
+.pf-v5-c-login__main-header {
+  border-top: none;
+}
+
+/* Login form */
+
+#kc-form-login {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+}
+
+#kc-form-login > .pf-v5-c-form__group {
+  grid-column: 1 / -1;
+}
+
+/*
+ * The password group and login action share a grid row.
+ * These selectors depend on the element order in Keycloak's
+ * inherited login.ftl template.
+ */
+
+#kc-form-login > .pf-v5-c-form__group:nth-child(2) {
+  grid-row: 2;
+}
+
+#kc-form-login > .pf-v5-c-form__group:last-child {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  z-index: 1;
+  margin-top: 0.75rem;
+}
+
+/* Forgot password action */
+
+#kc-form-login .pf-v5-c-form__helper-text {
+  margin-top: 1.25rem;
+}
+
+#kc-form-login .pf-v5-c-form__helper-text a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  box-sizing: border-box;
+  padding: 0.6rem 1rem;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+/* Login action */
+
+#kc-login {
+  width: 100%;
+  min-height: 2.75rem;
+  box-sizing: border-box;
+}

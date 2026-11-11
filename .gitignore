@@ -118,3 +118,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .DS_Store
+/keycloak-themes-26.8.1.jar

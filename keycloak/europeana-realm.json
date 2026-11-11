@@ -1366,7 +1366,7 @@
     "ssl": ""
   },
   "loginTheme": "europeana",
-  "accountTheme": "europeana",
+  "accountTheme": "keycloak.v3",
   "adminTheme": "keycloak",
   "emailTheme": "europeana",
   "eventsEnabled": false,

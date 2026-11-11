@@ -16,19 +16,21 @@ FROM alpine AS theme
 WORKDIR /opt/keycloak/themes/europeana
 
 COPY --from=build /build/theme ./
+COPY --from=build /build/theme-v2 ../europeana-v2/
 
 
-FROM quay.io/keycloak/keycloak:23.0.7 AS keycloak
+FROM quay.io/keycloak/keycloak:26.8.1 AS keycloak
 
 WORKDIR /opt/keycloak
 
 COPY --from=theme /opt/keycloak/themes/europeana ./themes/europeana
+COPY ./theme-v2 ./themes/europeana-v2
 COPY ./keycloak/keycloak.conf ./conf/
 
 RUN /opt/keycloak/bin/kc.sh build --http-relative-path=/auth
 
 
-FROM quay.io/keycloak/keycloak:23.0.7
+FROM quay.io/keycloak/keycloak:26.8.1
 
 WORKDIR /opt/keycloak
 

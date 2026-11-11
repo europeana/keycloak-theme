@@ -8,14 +8,23 @@ services:
         source: ./theme
         target: /opt/keycloak/themes/europeana
       - keycloak-data-h2-db:/opt/keycloak/data/h2
+      - ./theme-v2:/opt/keycloak/themes/europeana-v2:ro
+    command:
+      - start
+      - --optimized
+      - --import-realm
+      - --spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true
+      - --spi-theme-cache-themes=false
+      - --spi-theme-cache-templates=false
+      - --spi-theme-static-max-age=-1
     ports:
       - "10001:8080"
-    environment:
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD
   smtp:
-    image: namshi/smtp
+    image: axllent/mailpit:latest
+    ports:
+      - "127.0.0.1:8025:8025"
     expose:
-      - "25"
+      - "1025"
 volumes:
   keycloak-data-h2-db: {}
+  
