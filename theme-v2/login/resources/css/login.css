@@ -11,9 +11,10 @@
   display: flex;
   justify-content: center;
   background: #fff;
-  padding: 2rem 0 1rem;
+  padding: 2rem 0 0;
   margin-bottom: 0;
   margin-top: 0;
+  border-bottom: 3px solid #ddd;
 }
 
 #kc-header-wrapper {
@@ -53,6 +54,7 @@
   border-top: none;
 }
 
+
 /* Login form */
 
 #kc-form-login {
@@ -66,9 +68,12 @@
 }
 
 /*
- * The password group and login action share a grid row.
- * These selectors depend on the element order in Keycloak's
- * inherited login.ftl template.
+ * The password group spans the full form width.
+ * The login action shares its grid row, aligned to the
+ * bottom right, opposite the Forgot Password button.
+ *
+ * These selectors depend on the element order in
+ * Keycloak's inherited login.ftl template.
  */
 
 #kc-form-login > .pf-v5-c-form__group:nth-child(2) {
@@ -78,22 +83,30 @@
 #kc-form-login > .pf-v5-c-form__group:last-child {
   grid-column: 2;
   grid-row: 2;
+  justify-self: end;
   align-self: end;
-  z-index: 1;
-  margin-top: 0.75rem;
+  z-index: auto;
+  margin-top: 0;
 }
 
-/* Forgot password action */
+/* Remember me and Forgot Password */
 
 #kc-form-login .pf-v5-c-form__helper-text {
-  margin-top: 1.25rem;
+  margin-top: 1rem;
+}
+
+#kc-form-login .pf-v5-c-helper-text {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 #kc-form-login .pf-v5-c-form__helper-text a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75rem;
+  height: 3rem;
+  min-height: 3rem;
   box-sizing: border-box;
   padding: 0.6rem 1rem;
   border: 1px solid #0066cc;
@@ -105,7 +118,122 @@
 /* Login action */
 
 #kc-login {
-  width: 100%;
-  min-height: 2.75rem;
+  width: auto;
+  height: 3rem;
+  min-height: 3rem;
   box-sizing: border-box;
+}
+
+
+/* Europeana login / registration navigation */
+
+body:is([data-page-id="login-login"], [data-page-id="login-register"]) #kc-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body:is([data-page-id="login-login"], [data-page-id="login-register"]) #kc-header-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+#europeana-auth-tabs {
+  display: flex;
+  width: 100%;
+  max-width: 280px;
+  margin: 1.5rem 0 0;
+}
+
+.europeana-auth-tab {
+  flex: 1;
+  padding: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 3px solid #ddd;
+  color: #555;
+  font-weight: normal;
+  position: relative;
+  margin-bottom: -3px;
+}
+
+.europeana-auth-tab.active {
+  border-bottom-color: #0066cc;
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.europeana-auth-tab:hover {
+  text-decoration: none;
+}
+
+/* The checkbox text already contains the complete statement. */
+body[data-page-id="login-register"] label[for="ageconfirm"].pf-v5-c-form__label,
+body[data-page-id="login-register"] label[for="terms"].pf-v5-c-form__label {
+    display: none;
+}
+
+/* Compact layout for registration consent checkboxes. */
+body[data-page-id="login-register"] .pf-v5-c-form__group:has(#ageconfirm-true),
+body[data-page-id="login-register"] .pf-v5-c-form__group:has(#terms-true) {
+    margin-block: 0;
+}
+
+/* Remove the unused heading containers. */
+body[data-page-id="login-register"] .pf-v5-c-form__group:has(#ageconfirm-true) > .pf-v5-c-form__group-label,
+body[data-page-id="login-register"] .pf-v5-c-form__group:has(#terms-true) > .pf-v5-c-form__group-label {
+    display: none;
+}
+
+/* Reduce spacing between the two consent checkboxes only. */
+body[data-page-id="login-register"]
+.pf-v5-c-form__group:has(#terms-true) {
+    margin-top: -16px;
+}
+
+/* Space between consent checkboxes and their text. */
+body[data-page-id="login-register"] label[for="ageconfirm-true"],
+body[data-page-id="login-register"] label[for="terms-true"] {
+    margin-left: 5px;
+}
+
+/* Align the registration submit button to the right */
+body[data-page-id="login-register"] #kc-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+body[data-page-id="login-register"] #kc-form-buttons input[type="submit"] {
+    width: auto;
+    flex: none;
+}
+
+/* Login / Join tabs replace the back-to-login footer */
+body[data-page-id="login-register"] .pf-v5-c-login__main-footer-band {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    body[data-page-id="login-register"] .pf-v5-c-login__main-header {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page-id="login-register"] .pf-v5-c-login__main-header-utilities {
+        width: 100%;
+    }
+}
+
+
+/* Compact language selector on the registration page */
+body[data-page-id="login-register"] .pf-v5-c-login__main-header-utilities {
+    width: 66%;
+    margin-left: auto;
+}
+
+/* Place the Join heading and language selector side by side */
+body[data-page-id="login-register"] .pf-v5-c-login__main-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
 }
